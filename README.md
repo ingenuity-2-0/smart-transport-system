@@ -1,7 +1,7 @@
 # [Smart Transport System](https://github.com/ShahriarShafin/bus-transport-system)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue) 
 ![coverage](https://img.shields.io/badge/coverage-10%25-green)
-![repo size](https://img.shields.io/github/repo-size/Ingenuity-2-0/Smart-Transport-System?color=red)
+![repo size](https://img.shields.io/github/repo-size/Ingenuity-2-0/SmartTransportSystem?color=red)
 
 ## About this project
   A user friendly web based bus transport system created using Python( Django ).<br>
