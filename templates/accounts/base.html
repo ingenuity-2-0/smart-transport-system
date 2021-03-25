@@ -1,4 +1,6 @@
+<!-- load static  -->
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +8,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Tempo Bootstrap Template - Index</title>
+  <title>Smart Transport System - Home</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -55,10 +57,11 @@
                             Logout
                         </button>
                     </li>
+                    <!-- SignUP-Login Form -->
                 {% else %}
                     <li>
                         <button id="myBtn" type="button" class="btn btn-red" onclick="document.location='{% url 'accounts' %}'">
-                            SignUP/Login
+                            SignUP/Login                      
                         </button>
                     </li>
                 {% endif %}

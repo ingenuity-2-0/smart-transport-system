@@ -1,3 +1,4 @@
+<!-- load static  -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +7,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Tempo Bootstrap Template - Index</title>
+    <title>Smart Transport System - Home</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -118,7 +119,7 @@
                         <!-- Sign-up Form -->
                         <div class="signup form-peice">
 
-                            <form class="signup-form" action="{% url 'register' %}" method="post">{% csrf_token %}
+                            <form class="signup-form" action="{% url 'register' %}" method="post">{% csrf_token %} <!-- Secured -->
 
                             <div class="form-group">
                                     <label for="name">Full Name</label>
