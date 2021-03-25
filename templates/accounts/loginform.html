@@ -97,7 +97,7 @@
                     <div class="col-sm-6 form">
                         <!-- Login Form -->
                         <div class="login form-peice switched" id="log">
-                            <form class="login-form" action="login/" method="post">{% csrf_token %}
+                            <form class="login-form" action="{% url 'login' %}" method="post">{% csrf_token %}
                                 {% if 'login' ==  from %}
                                         <span> {{ error }}</span>
                                     {% endif %}
