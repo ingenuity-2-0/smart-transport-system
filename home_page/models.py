@@ -9,13 +9,13 @@ class Route(models.Model):
 
 class BusInformation(models.Model):
     bus_id = models.AutoField(primary_key=True) #auto generated
-    bus_name = models.CharField(max_length=255)  
-    bus_type = models.CharField(max_length=15) 
+    bus_name = models.CharField(max_length=255) #bus name 
+    bus_type = models.CharField(max_length=15) #bus type 
     route_id = models.ForeignKey('Route', on_delete=models.CASCADE) #added foreignKey from Route Table
 
 
 class Map(models.Model):
-    map_id = models.AutoField(primary_key=True) 
+    map_id = models.AutoField(primary_key=True) #map id
     bus_id = models.ForeignKey('BusInformation', on_delete=models.CASCADE)  #added foreignKey from BusInformation Table
     way_points = models.TextField() #waypoint as text
 
