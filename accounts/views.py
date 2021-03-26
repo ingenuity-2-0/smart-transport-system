@@ -50,7 +50,14 @@ def register(request):  # getting new user info
         'email': email,
     }
     # -----------------------------------
-    first_name, last_name = full_name.rsplit(maxsplit=1)  # splitting name as reverse order
+    # detect the number of words in fullname
+    length_of_fullname = len(full_name.split())
+    if length_of_fullname == 1:
+        first_name = full_name
+        last_name = ''
+    else:
+        first_name, last_name = full_name.rsplit(maxsplit=1)  # splitting name as reverse order
+
     if User.objects.filter(username=user_name).exists():  # checking user name from database
         message = {
             'from': 'signup',
@@ -58,10 +65,22 @@ def register(request):  # getting new user info
             'values': values  # to stay in form
         }
         return render(request, 'accounts/loginform.html', message)  # return with message
+
+    elif User.objects.filter(email=email).exists():  # checking email from database
+        message = {
+            'from': 'signup',
+            'error': 'Email is already taken',
+            'values': values  # to stay in form
+        }
+        return render(request, 'accounts/loginform.html', message)  # return with message
+
     else:
         user = User.objects.create_user(username=user_name, password=password, email=email, first_name=first_name,
                                         last_name=last_name)
         user.save()
+        # After registration auto login the user and redirect to home page
+        user = auth.authenticate(username=user_name, password=password)
+        auth.login(request, user)
         return redirect('/')  # to home
     # return render(request, 'accounts/login.html', {'data': 'registration is successful'})
 

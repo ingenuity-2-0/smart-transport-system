@@ -127,13 +127,16 @@
                                     <label for="name">Full Name</label>
                                     <input type="text" value="{{ values.full_name }}" name="full_name" id="name" class="name">
                                     <span class="error"></span>
+
                                 </div>
                                 <div class="form-group">
                                     <label for="name">UserName</label>
                                     <input type="text" value="{{ values.user_name }}" name="username" id="name" class="name">
                                     <span class="error"></span>
                                     {% if 'signup' ==  from %}
+                                        {% if error == 'User name is already taken' %}
                                         <span> {{ error }}</span>
+                                        {% endif %}
                                     {% endif %}
 
                                 </div>
@@ -143,6 +146,11 @@
                                     <label for="email">Email Adderss</label>
                                     <input type="email" value="{{ values.email }}" name="emailAddress" id="email" class="email">
                                     <span class="error"></span>
+                                    {% if 'signup' ==  from %}
+                                        {% if error == 'Email is already taken' %}
+                                        <span> {{ error }}</span>
+                                        {% endif %}
+                                    {% endif %}
                                 </div>
 
                                 {#                  <div class="form-group">#}
