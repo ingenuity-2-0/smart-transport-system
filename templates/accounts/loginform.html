@@ -46,11 +46,12 @@
 
         <nav class="nav-menu d-none d-lg-block">
         <!--navigation bar link up-->
-            <ul>     
-                <li><a href=" {% url 'home' %}">Home</a></li>
-                <li><a href="index.html#about">Search</a></li>
-                <li><a href="#services">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+            <ul>
+{#                <!--make the nav bar dynamic using {% url 'home' %}#id -->#}
+                <li class="active"><li><a href=" {% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'home' %}#services">Search</a></li>
+                <li><a href="{% url 'home' %}#team">About</a></li>
+                <li><a href="{% url 'home' %}#contact">Contact</a></li>
                 {% if user.is_authenticated %}
                     <li style="color: #e43c5c;padding-left: 12px;">Hi, <br>{{ user.first_name }}</li>
                     <li>

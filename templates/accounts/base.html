@@ -42,10 +42,12 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#services">Search</a></li>
-          <li><a href="#team">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+        {#                <!--make the nav bar dynamic using {% url 'home' %}#id -->#}
+
+          <li class="active"><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'home' %}#services">Search</a></li>
+          <li><a href="{% url 'home' %}#team">About</a></li>
+          <li><a href="{% url 'home' %}#contact">Contact</a></li>
           {% if user.is_authenticated %}
                     <li style="color: #e43c5c;">Hi</li>
                     <li>
