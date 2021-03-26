@@ -1,4 +1,16 @@
-.btn-red{
+.btn-red {
     color: white;
     background-color: #e43c5c;
+}
+
+#findDerections {
+    display: none;  
+}
+
+#nearbyStations {
+    display: none;
+}
+
+#specificBus {
+    display: none;
 }

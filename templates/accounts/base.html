@@ -97,34 +97,64 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-3 col-md-4 col-6 col-6">
+          <div class="col-lg-3 col-md-4 col-6 col-6" onclick="findDerections()">
             <div class="icon-box">
               <h3><a>Find Directions</a></h3>
               <i class="ri-search-line" style="color: #ffbb2c; margin-left: 21%;"></i>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-4 col-6">
+          <div class="col-lg-3 col-md-4 col-6" onclick="nearbyStations()">
             <div class="icon-box">
               <h3><a>Nearby Stations</a></h3>
               <i class="ri-search-line" style="color: #5578ff; margin-left: 18%;"></i>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-4 col-6 mt-4 mt-md-0">
+          <div class="col-lg-3 col-md-4 col-6 mt-4 mt-md-0" onclick="specificBus()">
             <div class="icon-box">
               <h3><a>Find Specific Bus</a></h3>
               <i class="ri-search-line" style="color: #e80368; margin-left: 14%;"></i>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0">
+          <div class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0"onclick="allBuses()">
             <div class="icon-box">
               <h3><a>All Buses</a></h3>
               <i class="ri-search-line" style="color: #e361ff; margin-left: 42%;"></i>
             </div>
           </div>
+          <!-- temp bar  -->
 
+          <div class="col-md-4 offset-md-4 mt-5 border border-warning pt-3" id="findDerections">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control border-warning" placeholder="From" aria-label="Recipient's username">
+              <input type="text" class="form-control border-warning" placeholder="To" aria-label="Recipient's username">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="ri-search-line"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 offset-md-4 mt-5 border border border-primary pt-3" id="nearbyStations">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control border border-primary" placeholder="Search ...." aria-label="Recipient's username">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="ri-search-line"></i></span>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-4 offset-md-4 mt-5 border border-danger pt-3" id="specificBus">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control border-danger" placeholder="Search ...." aria-label="Recipient's username">             
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="ri-search-line"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- temp bar  -->
         </div>
       </div>
     </section><!-- End Features Section -->
@@ -363,8 +393,8 @@
   <script> AOS.init(); </script>
 
   <!-- Template Main JS File -->
-  <script src="{% static 'accounts/assets/js/main.js' %}"></script> 
-  <script src="{% static 'accounts/assets/js/custom.js' %}"></script> <!-- New Created -->  
+  <script src="{% static 'accounts/assets/js/main.js' %}"></script>
+  <script src="{% static 'accounts/assets/custom.js' %}"></script> 
 
 </body>
 
