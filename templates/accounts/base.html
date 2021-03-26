@@ -8,48 +8,44 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Smart Transport System - Home</title>
+  <title>Smart Transport System</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,600" rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,600" rel="stylesheet">
+  <!-- Favicons -->
+ <link rel="icon" href="{% static 'accounts/assets/img/favicon.png' %}" type="image/gif" sizes="32x32">
+  <link href="{% static 'accounts/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon"> 
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- New Created -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link href="{% static 'accounts/assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet"> 
+  <link href="{% static 'accounts/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet"> 
+  <link href="{% static 'accounts/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet"> 
+  <link href="{% static 'accounts/assets/vendor/venobox/venobox.css' %}" rel="stylesheet"> 
+  <link href="{% static 'accounts/assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet"> 
 
   <!-- Template Main CSS File -->
-  <!-- <link href="assets/css/style.css" rel="stylesheet"> -->
-
-  <!-- Form CSS  -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'accounts/loginform.css' %}">
-  <!-- <link rel="stylesheet" href="temp.css"> -->
-
+  <link href="{% static 'accounts/assets/css/custom.css' %}" rel="stylesheet"> <!-- New Created --> 
+  <link href="{% static 'accounts/assets/css/style.css' %}" rel="stylesheet">  
 </head>
 
 <body>
-
+  
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
-
-      <!-- <h1 class="logo mr-auto"><a href="index.html">Tempo</a></h1> -->
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="index.html" class="mr-auto"><img src="{% static 'accounts/assets/img/logo.png' %}" width="150px" height="" alt=""
-          class="img-fluid"></a>
+      <a href="#" class="mr-auto"><img src="{% static 'accounts/assets/img/logo.png' %}" width="150px" height="" alt="" class="img-fluid"></a>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="#">Home</a></li> <!--  navigation bar -->
-          <li><a href="#">Search</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#services">Search</a></li>
+          <li><a href="#team">About</a></li>
+          <li><a href="#contact">Contact</a></li>
           {% if user.is_authenticated %}
                     <li style="color: #e43c5c;">Hi</li>
                     <li>
@@ -73,32 +69,301 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
-    <div class="hero-container">
-        <div style="padding-top: 45px;">
-            {% block data %}
-            {% endblock %}
-        </div>
-
-      </div>
-      <!-- .................................  -->
+    <div class="hero-container" data-aos="zoom-out" data-aos-duration="1500">
+      <h3>Welcome to <strong>Smart Transport System</strong></h3>
+      <h1>find buses around <span>dhaka city <i class='bx bxs-bus bx-lg' style="color: #e43c5c;"></i></span></h1> 
+      <h2>Find local bus route, search between source and destination, search by bus name and more!</h2>
+      <a href="#services" class="btn-get-started scrollto">Get Started</a>
     </div>
   </section><!-- End Hero -->
 
+  <main id="main">
 
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-title">
+          <h2><i class='bx bxs-bus bx-md'></i></h2>
+          <h3>Search <span>Here</span></h3>
+          <p>Use search button below to search by Bus Name, Source and Destination, Nearby Bus Station and more!</p>
+        </div>
+      </div>
+    </section><!-- End Services Section -->
 
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="row">
 
-  <!-- ......................OK........................  -->
+          <div class="col-lg-3 col-md-4 col-6 col-6">
+            <div class="icon-box">
+              <h3><a>Find Directions</a></h3>
+              <i class="ri-search-line" style="color: #ffbb2c; margin-left: 21%;"></i>
+            </div>
+          </div>
 
-  <!-- Bootstrap  -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-  <!-- Custom -->
-  <script src="{% static 'accounts/loginform.js' %}"></script>
-  <!-- Form Slider -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+          <div class="col-lg-3 col-md-4 col-6">
+            <div class="icon-box">
+              <h3><a>Nearby Stations</a></h3>
+              <i class="ri-search-line" style="color: #5578ff; margin-left: 18%;"></i>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-6 mt-4 mt-md-0">
+            <div class="icon-box">
+              <h3><a>Find Specific Bus</a></h3>
+              <i class="ri-search-line" style="color: #e80368; margin-left: 14%;"></i>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0">
+            <div class="icon-box">
+              <h3><a>All Buses</a></h3>
+              <i class="ri-search-line" style="color: #e361ff; margin-left: 42%;"></i>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End Features Section -->
+    
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title">
+          <h2><i class='bx bxl-microsoft-teams bx-md'></i></h2>
+          <h3>Our Core <span>Team</span></h3>
+          <p>Meet our hardworking team members.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="{% static 'accounts/assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Shahriar Shafin</h4>
+                <span>Front-end Developer</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="{% static 'accounts/assets/img/team/team-2.jpg' %}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Sabbir Hosen</h4>
+                <span>Back-end Developer</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="{% static 'accounts/assets/img/team/team-3.jpg' %}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Sohag Hossen</h4>
+                <span>Database Manager</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2><i class='bx bx-message-alt-detail bx-md'></i></i></h2>
+          <h3>Contact <span>Us</span></h3>
+          <p>Feel free to get in touch with us. We are always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+        </div>
+
+        <div>
+          <iframe style="border:0; width: 100%; height: 270px;" src="https://maps.google.com/maps?q=uap&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <h4>Location:</h4>
+                <p>74/A, Green Road, Dhaka - 1205, Bangladesh</p>
+              </div>
+
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 5589 55488 55s</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>S.T.S</h3>
+            <p>
+              74/A, Green Road <br>
+              Dhaka - 1205, Bangladesh<br>
+              Bangladesh <br><br>
+              <strong>Phone:</strong> +8802-58157091<br>
+              <strong>Email:</strong> registrar@uap-bd.edu<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Site map</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Buy Bus Ticket</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Uber Service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Pathao BD</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Smart Transport</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Rail Sheba</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>Subscribe to our newsletter to get the latest update.</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Smart Transport System</span></strong>. All Rights Reserved
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'accounts/assets//vendor/jquery/jquery.min.js' %}"></script>  
+  <script src="{% static 'accounts/assets//vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/php-email-form/validate.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script> 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!-- New Created AOS -->
+
+  <!-- AOS -->
+  <script> AOS.init(); </script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'accounts/assets/js/main.js' %}"></script> 
+  <script src="{% static 'accounts/assets/js/custom.js' %}"></script> <!-- New Created -->  
+
 </body>
 
 </html>
