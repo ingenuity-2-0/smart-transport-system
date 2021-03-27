@@ -32,7 +32,7 @@
 
 </head>
 
-<body>
+<body onload="switchMe()">
 
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top ">
@@ -172,7 +172,7 @@
 
                                 <div class="CTA">
                                     <input type="submit" value="Signup Now" id="submit">
-                                    <a href="#" class="switch">I have an account</a>
+                                    <a id="haveAccount" href="#" class="switch">I have an account</a>
                                 </div>
                             </form>
                         </div><!-- End Sign-up Form -->
@@ -196,6 +196,9 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init();
+    function switchMe() {
+    document.getElementById("haveAccount").click();
+ }
 </script>
 </body>
 
