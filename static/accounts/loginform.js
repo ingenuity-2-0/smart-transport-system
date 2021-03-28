@@ -1,9 +1,23 @@
+// Switch to Log-in Page 
+function switchMe() {
+    document.getElementById("haveAccount").click();
+ }
+// .................Toggle Button..................... 
+const toggleButton = document.getElementsByClassName('toggle-button')[0]
+const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+toggleButton.addEventListener('click', () => {
+  navbarLinks.classList.toggle('active')
+})
+// ..................Toggle Button.................... 
+
 /*global $, document, window, setTimeout, navigator, console, location*/
 $(document).ready(function () {
 
     'use strict';
 
     var usernameError = true,
+        useridError    = true,
         emailError    = true,
         passwordError = true,
         passConfirm   = true;
@@ -21,7 +35,21 @@ $(document).ready(function () {
 
     // Form validation
     $('input').blur(function () {
-
+        // ........................................ 
+        // User Id 
+        if ($(this).hasClass('userid')) {
+            if ($(this).val().length === 0) {
+                $(this).siblings('span.error').text('Please type your username').fadeIn().parent('.form-group').addClass('hasError');
+                useridError = true;
+            } else if ($(this).val().length > 1 && $(this).val().length <= 6) {
+                $(this).siblings('span.error').text('Please type at least 6 characters').fadeIn().parent('.form-group').addClass('hasError');
+                useridError = true;
+            } else {
+                $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
+                useridError = false;
+            }
+        }
+        // ........................................ 
         // User Name
         if ($(this).hasClass('name')) {
             if ($(this).val().length === 0) {
@@ -88,15 +116,15 @@ $(document).ready(function () {
     });
 
 
-    // // Form submit
+    // Form submit
     // $('form.signup-form').submit(function (event) {
     //     event.preventDefault();
-    //
-    //     if (usernameError == true || emailError == true || passwordError == true || passConfirm == true) {
-    //         $('.name, .email, .pass, .passConfirm').blur();
+
+    //     if (usernameError == true || useridError == true || emailError == true || passwordError == true || passConfirm == true) {
+    //         $('.name, .userid, .email, .pass, .passConfirm').blur();
     //     } else {
     //         $('.signup, .login').addClass('switched');
-    //
+
     //         setTimeout(function () { $('.signup, .login').hide(); }, 700);
     //         setTimeout(function () { $('.brand').addClass('active'); }, 300);
     //         setTimeout(function () { $('.heading').addClass('active'); }, 600);
@@ -106,10 +134,10 @@ $(document).ready(function () {
     //     }
     // });
 
-    // // Reload page
-    // $('a.profile').on('click', function () {
-    //     location.reload(true);
-    // });
+    // Reload page
+    $('a.profile').on('click', function () {
+        location.reload(true);
+    });
 
 
 });
