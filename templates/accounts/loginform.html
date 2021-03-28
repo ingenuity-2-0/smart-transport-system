@@ -110,7 +110,7 @@
 
                   <div class="form-group">
                      <label for="name">Full Name</label>
-                     <input type="text" name="fullname" id="name" class="name" value="{{ values.full_name }}">
+                     <input type="text" name="name" id="name" class="name" value="{{ values.full_name }}">
                      <span class="error"></span>
                   </div>
 
@@ -129,9 +129,9 @@
 
                   <div class="form-group">
                      <label for="email">Email Adderss</label>
-                     <input type="email" name="emailAddress" id="email" class="email" value="{{ values.email }}">
+                     <input type="email" name="emailAdress" id="email" class="email" value="{{ values.email }}">
                      <span class="error"></span>
-                     <!-- Cheak Email in Database -->
+                     <!-- Check Email in Database -->
                      {% if 'signup' ==  from %}
                         {% if error == 'Email is already taken' %}
                         <span> {{ error }}</span>

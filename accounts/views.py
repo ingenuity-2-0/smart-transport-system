@@ -40,8 +40,8 @@ def login(request):
 
 def register(request):  # getting new user info
     user_name = request.POST['userid']
-    full_name = str(request.POST['fullname'])
-    email = request.POST['emailAddress']
+    full_name = request.POST['name']
+    email = request.POST['emailAdress']
     password = request.POST['password']
     # -----------------------------------
     values = {
@@ -51,6 +51,7 @@ def register(request):  # getting new user info
     }
     # -----------------------------------
     # detect the number of words in fullname
+    
     length_of_fullname = len(full_name.split())
     if length_of_fullname == 1:
         first_name = full_name
