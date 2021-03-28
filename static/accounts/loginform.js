@@ -1,7 +1,12 @@
-// Switch to Log-in Page 
-function switchMe() {
-    document.getElementById("haveAccount").click();
- }
+    //////////////////// Custom JS ////////////////////////// 
+
+    // Switch to Log-in Page 
+    function switchMe() {
+        document.getElementById("haveAccount").click();
+    }
+
+    //////////////////// Custom JS ////////////////////////// 
+
 // .................Toggle Button..................... 
 const toggleButton = document.getElementsByClassName('toggle-button')[0]
 const navbarLinks = document.getElementsByClassName('navbar-links')[0]
@@ -136,7 +141,7 @@ $(document).ready(function () {
 
     // Reload page
     $('a.profile').on('click', function () {
-        location.reload(true);
+        location.reload(false);
     });
 
 
