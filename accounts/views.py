@@ -39,8 +39,8 @@ def login(request):
 
 
 def register(request):  # getting new user info
-    user_name = request.POST['username']
-    full_name = str(request.POST['full_name'])
+    user_name = request.POST['userid']
+    full_name = str(request.POST['fullname'])
     email = request.POST['emailAddress']
     password = request.POST['password']
     # -----------------------------------
