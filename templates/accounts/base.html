@@ -434,7 +434,7 @@
 
   function showPosition(position) {
     lat = position.coords.latitude + " " + position.coords.longitude;
-    console.log(x);
+    console.log(lat);
     document.getElementById("userLocation").value = lat;
     document.getElementById("passLat").action = "{% url 'searchnearby' %}";   
   }
