@@ -6,4 +6,4 @@ from django.http import HttpResponse
 def searchnearby(request):
     location = request.POST['userLocation']
     print(location)
-    return HttpResponse("<h1> {{location}}</h1>")
+    return HttpResponse(location)
