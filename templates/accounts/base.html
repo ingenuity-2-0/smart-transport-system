@@ -118,7 +118,7 @@
             </div>
           </div>
 
-          <div data-aos="fade-left" class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0"onclick="allBuses()">
+          <div data-aos="fade-left" class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0" onclick="allBuses()">
             <div class="icon-box">
               <h3><a>All Buses</a></h3>
               <i class="ri-search-line" style="color: #e361ff; margin-left: 42%;"></i>
@@ -157,8 +157,8 @@
         
         <!-- invisible form -->
         <div class="col-md-4 offset-md-4 mt-5 pt-3">
-          <form id="passLat" action="{}" method="post"> {% csrf_token %} <!-- Secured -->           
-            <input id="userLocation" type="text" value="user location will visible here">
+          <form id="passLat" action="{% url 'searchnearby' %}" method="post"> {% csrf_token %} <!-- Secured -->
+            <input id="userLocation" type="text" value="user location will visible here" name="userLocation">
             <input type="submit">
           </form>
         </div>
