@@ -13,7 +13,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
- <link rel="icon" href="{% static 'accounts/assets/img/favicon.png' %}" type="image/gif" sizes="32x32">
+  <link rel="icon" href="{% static 'accounts/assets/img/favicon.png' %}" type="image/gif" sizes="32x32">
   <link href="{% static 'accounts/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon"> 
 
   <!-- Google Fonts -->
@@ -27,6 +27,9 @@
   <link href="{% static 'accounts/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet"> 
   <link href="{% static 'accounts/assets/vendor/venobox/venobox.css' %}" rel="stylesheet"> 
   <link href="{% static 'accounts/assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet"> 
+
+  <!-- Typed js  -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 
   <!-- Template Main CSS File -->
   <link href="{% static 'accounts/assets/css/custom.css' %}" rel="stylesheet"> <!-- New Created --> 
@@ -73,7 +76,7 @@
   <section id="hero">
     <div class="hero-container" data-aos="zoom-out" data-aos-duration="1500">
       <h3>Welcome to <strong>Smart Transport System</strong></h3>
-      <h1>find buses around <span>dhaka city <i class='bx bxs-bus bx-lg' style="color: #e43c5c;"></i></span></h1> 
+      <h1>find buses around <i class='bx bxs-bus bx-lg' style="color: #e43c5c;"></i>-<span class="type"></span></h1> 
       <h2>Find local bus route, search between source and destination, search by bus name and more!</h2>
       <a href="#services" class="btn-get-started scrollto">Get Started</a>
     </div>
@@ -156,10 +159,10 @@
           </div>
         
         <!-- invisible form -->
-        <div class="col-md-4 offset-md-4 mt-5 pt-3">
-          <form id="passLat" action="{% url 'searchnearby' %}" method="post"> {% csrf_token %} <!-- Secured -->
+        <div class="col-md-4 offset-md-4 mt-5 pt-3 invisible">
+          <form id="passLat" action="{% url 'searchnearby' %}" method="post"> {% csrf_token %} <!-- Secured -->           
             <input id="userLocation" type="text" value="user location will visible here" name="userLocation">
-            <input type="submit">
+            <!-- <input type="submit"> -->
           </form>
         </div>
         <!-- invisible form -->
@@ -415,7 +418,7 @@
   <script src="{% static 'accounts/assets/js/custom.js' %}"></script> 
 
 <!--################## Test Field #######################-->
-
+<!-- get and passing location  -->
 <script>
   var lat = "";
 
@@ -435,6 +438,34 @@
     document.getElementById("userLocation").value = lat;
     // document.getElementById("passLat").action = "{}";   
   }
+</script>
+
+<!-- // typed js -->
+<script>
+  
+  var typed = new Typed('.type', {
+      strings: [
+          "DHAKA CITY",
+          "MOHAMMADPUR",
+          "KHINGAON",
+          "UTTARA",
+          "PALLABI",
+          "BANASHREE",
+          "MOHAKHALI",
+          "RAMPURA",
+          "SHAHBAG",
+          "MIRPUR",
+          "DHANMONDI ",
+          "BADDA",
+          "BANANI",
+          "FARMGATE"
+      ],
+      typeSpeed: 60,
+      backSpeed: 60,
+      loop: true
+  });
+  // nav slider
+  $('#nav').onePageNav();
 </script>
 
 <!--################## Test Field #######################-->
