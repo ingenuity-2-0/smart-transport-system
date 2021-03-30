@@ -18,4 +18,5 @@ function specificBus() {
 
 function allBuses() {
     alert('jibon ber hoitese!');
+    location.href = "{% url 'allbuses'%}";
 }

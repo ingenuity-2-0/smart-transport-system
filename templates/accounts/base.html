@@ -121,7 +121,7 @@
             </div>
           </div>
 
-          <div data-aos="fade-left" class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0" onclick="allBuses()">
+          <div data-aos="fade-left" class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0" onclick="allBuses()" >
             <div class="icon-box">
               <h3><a>All Buses</a></h3>
               <i class="ri-search-line" style="color: #e361ff; margin-left: 42%;"></i>
@@ -134,7 +134,7 @@
               <input type="text" class="form-control border-warning" placeholder="From" aria-label="Recipient's username">
               <input type="text" class="form-control border-warning" placeholder="To" aria-label="Recipient's username">
               <div class="input-group-append">
-                <span class="input-group-text"><i class="ri-search-line"></i></span>
+                <span class="input-group-text"><a href="{% url 'finddirection'%}"><i class="ri-search-line"></i></a></span>
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@
               <input type="text" class="form-control border border-primary" placeholder="Search ...." aria-label="Recipient's username">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="ri-pin-distance-fill" onclick="getLocation()" style="color: #e80368;"data-toggle="tooltip" data-placement="bottom" title="From your location"></i></span>
-                <span class="input-group-text"><i class="ri-search-line"></i></span>               
+                <span class="input-group-text"><a href="{% url 'searchnearby'%}"><i class="ri-search-line"></i></a></span>               
               </div>
             </div>
           </div>
@@ -153,7 +153,7 @@
             <div class="input-group mb-3">
               <input type="text" class="form-control border-danger" placeholder="Search ...." aria-label="Recipient's username">             
               <div class="input-group-append">
-                <span class="input-group-text"><i class="ri-search-line"></i></span>
+                <span class="input-group-text"><a href="{% url 'findspecificbus'%}"><i class="ri-search-line"></i></a></span>
               </div>
             </div>
           </div>
@@ -467,6 +467,7 @@
   // nav slider
   $('#nav').onePageNav();
 </script>
+
 
 <!--################## Test Field #######################-->
 
