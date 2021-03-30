@@ -160,9 +160,9 @@
         
         <!-- invisible form -->
         <div class="col-md-4 offset-md-4 mt-5 pt-3 invisible">
-          <form id="passLat" method="post"> {% csrf_token %} <!-- Secured -->           
+          <form action="{% url 'searchnearby' %}" method="post"> {% csrf_token %} <!-- Secured -->           
             <input id="userLocation" type="text" value="user location will visible here" name="userLocation">
-            <!-- <input type="submit"> -->
+            <input id="passLat" type="submit">
           </form>
         </div>
         <!-- invisible form -->
@@ -436,7 +436,7 @@
     lat = position.coords.latitude + " " + position.coords.longitude;
     console.log(lat);
     document.getElementById("userLocation").value = lat;
-    document.getElementById("passLat").action = "{% url 'searchnearby' %}";   
+    document.getElementById("passLat").click();
   }
 </script>
 
