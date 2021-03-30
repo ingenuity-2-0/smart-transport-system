@@ -157,8 +157,8 @@
         
         <!-- invisible form -->
         <div class="col-md-4 offset-md-4 mt-5 pt-3">
-          <form>
-            <input type="text">
+          <form id="passLat" action="{}" method="post"> {% csrf_token %} <!-- Secured -->           
+            <input id="userLocation" type="text" value="user location will visible here">
             <input type="submit">
           </form>
         </div>
@@ -417,21 +417,23 @@
 <!--################## Test Field #######################-->
 
 <script>
-  var x = "";
+  var lat = "";
 
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
       
     } else {
-      x = "Geolocation is not supported by this browser.";
-      console.log(x);
+      lat = "Geolocation is not supported by this browser.";
+      console.log(lat);
     }
   }
 
   function showPosition(position) {
-    x = position.coords.latitude + " " + position.coords.longitude;
-    console.log(x);
+    lat = position.coords.latitude + " " + position.coords.longitude;
+    // console.log(x);
+    document.getElementById("userLocation").value = lat;
+    // document.getElementById("passLat").action = "{}";   
   }
 </script>
 
