@@ -1,11 +1,33 @@
     //////////////////// Custom JS ////////////////////////// 
+    // If user field in not empty then action will works
+    function validateForm() {
+        var x1 = document.forms["myForm"]["name"].value;
+        var x2 = document.forms["myForm"]["userid"].value;
+        var x3 = document.forms["myForm"]["emailAdress"].value;
+        var x4 = document.forms["myForm"]["password"].value;
+        var x5 = document.forms["myForm"]["passwordCon"].value;
+        if (x1 == "" || x1 == null) {
+            // alert("Name must be filled out");
+        } else if (x2 == "" || x2 == null) {
+            // alert("User id must be filled out");
+        } else if (x3 == "" || x3 == null) {
+            // alert("Email Adress must be filled out");
+        } else if (x4 == "" || x4 == null) {
+            // alert("Password must be filled out");
+        } else if (x5 == "" || x5 == null) {
+            // alert("Password must be filled out");
+        } else {
+            document.getElementById("myForm").action = "{% url 'register' %}";
+            // event.preventDefault();
+        }
+    }
 
     // Switch to Log-in Page 
     function switchMe() {
         document.getElementById("haveAccount").click();
     }
-
     //////////////////// Custom JS ////////////////////////// 
+
 
 // .................Toggle Button..................... 
 const toggleButton = document.getElementsByClassName('toggle-button')[0]
