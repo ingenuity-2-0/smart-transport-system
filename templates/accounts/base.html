@@ -160,7 +160,7 @@
         
         <!-- invisible form -->
         <div class="col-md-4 offset-md-4 mt-5 pt-3 invisible">
-          <form id="passLat" action="{% url 'searchnearby' %}" method="post"> {% csrf_token %} <!-- Secured -->           
+          <form id="passLat" method="post"> {% csrf_token %} <!-- Secured -->           
             <input id="userLocation" type="text" value="user location will visible here" name="userLocation">
             <!-- <input type="submit"> -->
           </form>
@@ -434,9 +434,9 @@
 
   function showPosition(position) {
     lat = position.coords.latitude + " " + position.coords.longitude;
-    // console.log(x);
+    console.log(x);
     document.getElementById("userLocation").value = lat;
-    // document.getElementById("passLat").action = "{}";   
+    document.getElementById("passLat").action = "{% url 'searchnearby' %}";   
   }
 </script>
 
