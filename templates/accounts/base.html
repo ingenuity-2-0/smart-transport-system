@@ -140,18 +140,22 @@
           </div>
 
           <div class="col-md-4 offset-md-4 mt-5 border border border-primary pt-3" id="nearbyStations">
+              <!-- creating form for temporary-->
+              <form action="{% url 'searchnearby_address' %}" method="post">{% csrf_token %}
             <div class="input-group mb-3">
-              <input type="text" class="form-control border border-primary" placeholder="Search ...." aria-label="Recipient's username">
+              <input type="text" class="form-control border border-primary" placeholder="Search ...." aria-label="Recipient's username" name="userlocationaddress">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="ri-pin-distance-fill" onclick="getLocation()" style="color: #e80368;"data-toggle="tooltip" data-placement="bottom" title="From your location"></i></span>
-                <span class="input-group-text"><a href="{% url 'searchnearby'%}"><i class="ri-search-line"></i></a></span>               
+{#                <span class="input-group-text"><i type="submit" class="ri-search-line"></i></span>#}
+                  <input type="submit">
               </div>
             </div>
+              </form>
           </div>
                 
           <div class="col-md-4 offset-md-4 mt-5 border border-danger pt-3" id="specificBus">
             <div class="input-group mb-3">
-              <input type="text" class="form-control border-danger" placeholder="Search ...." aria-label="Recipient's username">             
+              <input type="text" class="form-control border-danger" placeholder="Search ...." aria-label="Recipient's username" >
               <div class="input-group-append">
                 <span class="input-group-text"><a href="{% url 'findspecificbus'%}"><i class="ri-search-line"></i></a></span>
               </div>
@@ -160,7 +164,7 @@
         
         <!-- invisible form -->
         <div class="col-md-4 offset-md-4 mt-5 pt-3 invisible">
-          <form action="{% url 'searchnearby' %}" method="post"> {% csrf_token %} <!-- Secured -->           
+          <form action="{% url 'searchnearby_latlng' %}" method="post"> {% csrf_token %} <!-- Secured -->
             <input id="userLocation" type="text" value="user location will visible here" name="userLocation">
             <input id="passLat" type="submit">
           </form>
@@ -433,7 +437,7 @@
   }
 
   function showPosition(position) {
-    lat = position.coords.latitude + " " + position.coords.longitude;
+    lat = position.coords.latitude + "," + position.coords.longitude;
     console.log(lat);
     document.getElementById("userLocation").value = lat;
     document.getElementById("passLat").click();

@@ -75,7 +75,7 @@
      <!-- ======= Breadcrumbs ======= -->
    <section id="breadcrumbs" class="breadcrumbs">
           <div class="container">
-            <h2>Nearby bus station from: <span class="text-danger">Uttara</span></h2>
+            <h2>Nearby bus station from: <span class="text-danger">{{ formatted_address }}</span></h2>
           </div>
    </section><!-- End Breadcrumbs -->
 
@@ -90,20 +90,14 @@
                 <div id="floating-panel">
                   <b>Start: </b>
                   <select id="start">
-                    <option value="chicago, il">Chicago</option>
+                    <option value="{{ formatted_address }}">{{ formatted_address }}</option>
                   </select>
 
                   <b>End: </b>
                   <select id="end">
-                    <option value="chicago, il">Chicago</option>
-                    <option value="st louis, mo">St Louis</option>
-                    <option value="joplin, mo">Joplin, MO</option>
-                    <option value="oklahoma city, ok">Oklahoma City</option>
-                    <option value="amarillo, tx">Amarillo</option>
-                    <option value="gallup, nm">Gallup, NM</option>
-                    <option value="flagstaff, az">Flagstaff, AZ</option>
-                    <option value="winona, az">Winona</option>
-                    <option value="kingman, az">Kingman</option>
+                      {% for x in nearlist %}
+                    <option value="{{ x }}">{{ x }}</option>
+                      {% endfor %}
                   </select>
                 </div>
 
@@ -117,12 +111,9 @@
               <h3 class="sidebar-title">More Nearby Bus Stations</h3>
               <div class="sidebar-item categories">
                 <ul>
-                  <li><a href="#">Farmgate <span>(600 m)</span></a></li>
-                  <li><a href="#">Dhanmondi <span>(1.7 km)</span></a></li>
-                  <li><a href="#">Ashulia <span>(2 km)</span></a></li>
-                  <li><a href="#">Mohammadpur <span>(22)</span></a></li>
-                  <li><a href="#">Tejgaon <span>(4 km)</span></a></li>
-                  <li><a href="#">Mirpur <span>(5.3 km)</span></a></li>
+                     {% for x in nearlist %}
+                  <li><a href="#">{{ x }} </a></li>
+                    {% endfor %}
                 </ul>
               </div><!-- End sidebar categories-->
               <h3 class="sidebar-title">Tags</h3>
