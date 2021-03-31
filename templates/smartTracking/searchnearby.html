@@ -29,6 +29,76 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'accounts/assets/css/custom.css' %}" rel="stylesheet"> <!-- New Created --> 
   <link href="{% static 'accounts/assets/css/style.css' %}" rel="stylesheet">  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> <!-- map --> 
+<!-- .............................................  -->
+<style type="text/css">
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    height: 600px;
+  }
+
+  #floating-panel {
+    position: absolute;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    font-family: "Roboto", "sans-serif";
+    line-height: 30px;
+    padding-left: 10px;
+  }
+</style>
+<!-- .............................................  -->
+<!-- .............................................  -->
+<script>
+  function initMap() {
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 7,
+      center: { lat: 41.85, lng: -87.65 },
+    });
+    directionsRenderer.setMap(map);
+
+    const onChangeHandler = function () {
+      calculateAndDisplayRoute(directionsService, directionsRenderer);
+    };
+    document
+      .getElementById("start")
+      .addEventListener("change", onChangeHandler);
+    document
+      .getElementById("end")
+      .addEventListener("change", onChangeHandler);
+  }
+
+  function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+    directionsService.route(
+      {
+        origin: {
+          query: document.getElementById("start").value,
+        },
+        destination: {
+          query: document.getElementById("end").value,
+        },
+        travelMode: google.maps.TravelMode.DRIVING,
+      },
+      (response, status) => {
+        if (status === "OK") {
+          directionsRenderer.setDirections(response);
+        } else {
+          window.alert("Directions request failed due to " + status);
+        }
+      }
+    );
+  }
+</script>
+<!-- .............................................  -->
+
+  
 </head>
 
 <body>
@@ -87,10 +157,42 @@
           <div class="col-lg-8 entries">
             <article class="entry entry-single">
               <div class="entry-img">
-                <!-- <img src="https://leafletjs.com/examples/quick-start/thumbnail.png" alt="" class="img-fluid"> -->
-                <div>
-                    <iframe style="border:0; width: 100%; height: 400px;" src="https://maps.google.com/maps?q=uap&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen></iframe>
-                  </div>
+                <!-- .............................................................  -->
+
+                <div id="floating-panel">
+                  <b>Start: </b>
+                  <select id="start">
+                    <option value="chicago, il">Chicago</option>
+                    <option value="st louis, mo">St Louis</option>
+                    <option value="joplin, mo">Joplin, MO</option>
+                    <option value="oklahoma city, ok">Oklahoma City</option>
+                    <option value="amarillo, tx">Amarillo</option>
+                    <option value="gallup, nm">Gallup, NM</option>
+                    <option value="flagstaff, az">Flagstaff, AZ</option>
+                    <option value="winona, az">Winona</option>
+                    <option value="kingman, az">Kingman</option>
+                    <option value="barstow, ca">Barstow</option>
+                    <option value="san bernardino, ca">San Bernardino</option>
+                    <option value="los angeles, ca">Los Angeles</option>
+                  </select>
+                  <b>End: </b>
+                  <select id="end">
+                    <option value="chicago, il">Chicago</option>
+                    <option value="st louis, mo">St Louis</option>
+                    <option value="joplin, mo">Joplin, MO</option>
+                    <option value="oklahoma city, ok">Oklahoma City</option>
+                    <option value="amarillo, tx">Amarillo</option>
+                    <option value="gallup, nm">Gallup, NM</option>
+                    <option value="flagstaff, az">Flagstaff, AZ</option>
+                    <option value="winona, az">Winona</option>
+                    <option value="kingman, az">Kingman</option>
+                    <option value="barstow, ca">Barstow</option>
+                    <option value="san bernardino, ca">San Bernardino</option>
+                    <option value="los angeles, ca">Los Angeles</option>
+                  </select>
+                </div>
+                <div id="map"></div>
+                <!-- .............................................................  -->
               </div>
             </article><!-- End blog entry -->
           </div><!-- End blog entries list -->
@@ -156,6 +258,16 @@
   <!-- Template Main JS File -->
   <script src="{% static 'accounts/assets/js/main.js' %}"></script>
   <script src="{% static 'accounts/assets/js/custom.js' %}"></script> 
+
+<!-- TEST FIELD  -->
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key="
+      async
+    ></script>
+
+<!-- TEST FIELD  -->
 </body>
 
 </html>
