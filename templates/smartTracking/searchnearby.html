@@ -1,12 +1,161 @@
+<!-- load static  -->
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <title>STS-Nearby Bus Stations</title>
+
+  <!-- Favicons -->
+  <link rel="icon" href="{% static 'accounts/assets/img/favicon.png' %}" type="image/gif" sizes="32x32">
+  <link href="{% static 'accounts/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon"> 
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link href="{% static 'accounts/assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet"> 
+  <link href="{% static 'accounts/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet"> 
+  <link href="{% static 'accounts/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet"> 
+  <link href="{% static 'accounts/assets/vendor/venobox/venobox.css' %}" rel="stylesheet"> 
+  <link href="{% static 'accounts/assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet"> 
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'accounts/assets/css/custom.css' %}" rel="stylesheet"> <!-- New Created --> 
+  <link href="{% static 'accounts/assets/css/style.css' %}" rel="stylesheet">  
 </head>
+
 <body>
-    <h1>nearby stations</h1>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+      <a href="{% url 'home' %}" class="mr-auto"><img src="{% static 'accounts/assets/img/logo.png' %}" width="150px" height="" alt="" class="img-fluid"></a>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+        {#                <!--make the nav bar dynamic using {% url 'home' %}#id -->#}
+
+          <li class="active"><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'home' %}#services">Search</a></li>
+          <li><a href="{% url 'home' %}#team">About</a></li>
+          <li><a href="{% url 'home' %}#contact">Contact</a></li>
+          {% if user.is_authenticated %}
+                    <li style="color: #e43c5c;">Hi</li>
+                    <li>
+                        <button id="myBtn" type="button" class="btn btn-red" onclick="document.location='{% url 'logout' %}'">
+                            Logout
+                        </button>
+                    </li>
+                    <!-- SignUP-Login Form -->
+                {% else %}
+                    <li>
+                        <button id="myBtn" type="button" class="btn btn-red" onclick="document.location='{% url 'accounts' %}'">
+                            SignUP/Login                      
+                        </button>
+                    </li>
+                {% endif %}
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+          <div class="container">
+
+            <ol>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Search</a></li>
+            </ol>
+            <h2>Nearby bus station from: <span class="text-danger">Uttara</span></h2>
+
+          </div>
+        </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 entries">
+            <article class="entry entry-single">
+              <div class="entry-img">
+                <!-- <img src="https://leafletjs.com/examples/quick-start/thumbnail.png" alt="" class="img-fluid"> -->
+                <div>
+                    <iframe style="border:0; width: 100%; height: 400px;" src="https://maps.google.com/maps?q=uap&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen></iframe>
+                  </div>
+              </div>
+            </article><!-- End blog entry -->
+          </div><!-- End blog entries list -->
+          <div class="col-lg-4">
+            <div class="sidebar">
+              <h3 class="sidebar-title">More Nearby Bus Stations</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="#">Farmgate <span>(600 m)</span></a></li>
+                  <li><a href="#">Dhanmondi <span>(1.7 km)</span></a></li>
+                  <li><a href="#">Ashulia <span>(2 km)</span></a></li>
+                  <li><a href="#">Mohammadpur <span>(22)</span></a></li>
+                  <li><a href="#">Tejgaon <span>(4 km)</span></a></li>
+                  <li><a href="#">Mirpur <span>(5.3 km)</span></a></li>
+                </ul>
+              </div><!-- End sidebar categories-->
+              <h3 class="sidebar-title">Tags</h3>
+              <div class="sidebar-item tags">
+                <ul>
+                  <li><a href="#">Hotel</a></li>
+                  <li><a href="#">Restaurants</a></li>
+                  <li><a href="#">Places</a></li>
+                  <li><a href="#">Gas station</a></li>
+                  <li><a href="#">Petrol Pump</a></li>
+                  <li><a href="#">Super Shop</a></li>
+                </ul>
+              </div><!-- End sidebar tags-->
+            </div><!-- End sidebar -->
+          </div><!-- End blog sidebar -->
+        </div>
+      </div>
+    </section><!-- End Blog Section -->
+        
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container d-md-flex py-4">
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Smart Transport System</span></strong>. All Rights Reserved
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'accounts/assets//vendor/jquery/jquery.min.js' %}"></script>  
+  <script src="{% static 'accounts/assets//vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/php-email-form/validate.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script> 
+  
+  <!-- Template Main JS File -->
+  <script src="{% static 'accounts/assets/js/main.js' %}"></script>
+  <script src="{% static 'accounts/assets/js/custom.js' %}"></script> 
 </body>
+
 </html>
