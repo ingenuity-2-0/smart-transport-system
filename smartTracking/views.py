@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from backendCode.geocoding import reverse_geocoding, geocoding_from_address
 from backendCode.nearbyplaces import search_nearby_places
+from home_page.models import BusInformation
 # Create your views here.
 
 
@@ -37,7 +38,29 @@ def findspecificbus(request):
 
 
 def allbuses(request):
-    return render(request, 'smartTracking/allbuses.html')
+    buses = BusInformation.objects.all()
+    buses_list = []
+    for bus in buses:
+        ssource_destination = str(bus.bus_sourcetodestination)
+        start, end = ssource_destination.split(sep='-', maxsplit=1)
+        routes = bus.route_id.routes
+        routes = routes.split(sep=',')
+        design = str(routes[0])
+        for r in range(1, len(routes) - 1):
+            design = design + '<->' + str(routes[r])
+        data = {
+            'bus_id': bus.bus_id,
+            'bus_name': bus.bus_name,
+            'start': start,
+            'end': end,
+            'routes': design
+        }
+        buses_list.append(data)
+    contex = {
+        'contex': buses_list
+    }
+    # print(routes)
+    return render(request, 'smartTracking/allbuses.html', contex)
 
 
 # urls of smarttracking apps

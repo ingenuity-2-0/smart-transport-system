@@ -86,42 +86,44 @@
       </tr>
     </thead>
     <tbody>
+    {% for data in contex %}
       <tr>
-        <th scope="row">1</th>
-        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>
-        <td>Mark</td>
-        <td>Otto</td>
+        <th scope="row">{{ data.bus_id }}</th>
+        <td>{{ data.bus_name }} <br><span style="color:#e43c5c">{{ data.routes }}</span></td>
+        <td>{{ data.start }}</td>
+        <td>{{ data.end }}</td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>
-        <td>Mark</td>
-        <td>Otto</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>
-        <td>Mark</td>
-        <td>Otto</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>
-        <td>Mark</td>
-        <td>Otto</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>
-        <td>Mark</td>
-        <td>Otto</td>
-      </tr>
-      <tr>
-        <th scope="row">6</th>
-        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>
-        <td>Mark</td>
-        <td>Otto</td>
-      </tr>
+    {% endfor %}
+{#      <tr>#}
+{#        <th scope="row">2</th>#}
+{#        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>#}
+{#        <td>Mark</td>#}
+{#        <td>Otto</td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <th scope="row">3</th>#}
+{#        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>#}
+{#        <td>Mark</td>#}
+{#        <td>Otto</td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <th scope="row">4</th>#}
+{#        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>#}
+{#        <td>Mark</td>#}
+{#        <td>Otto</td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <th scope="row">5</th>#}
+{#        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>#}
+{#        <td>Mark</td>#}
+{#        <td>Otto</td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <th scope="row">6</th>#}
+{#        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>#}
+{#        <td>Mark</td>#}
+{#        <td>Otto</td>#}
+{#      </tr>#}
     </tbody>
   </table>
 
