@@ -16,11 +16,6 @@ function specificBus() {
     document.getElementById("nearbyStations").style.display = "none";
     document.getElementById("specificBus").style.display = "block";
 }
-
-function allBuses() {
-    alert('jibon ber hoitese!');
-    location.href = "{% url 'allbuses'%}";
-}
 // ...................SEARCHBAR CHANGING........................ 
 
 
