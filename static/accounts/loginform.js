@@ -17,7 +17,7 @@
         } else if (x5 == "" || x5 == null) {
             // alert("Password must be filled out");
         } else {
-            document.getElementById("myForm").action = "{% url 'register' %}";
+            document.getElementById("myForm").submit();
             // event.preventDefault();
         }
     }

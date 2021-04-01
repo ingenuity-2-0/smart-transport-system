@@ -106,7 +106,7 @@
 
             <!-- Signup Form -->
             <div class="signup form-peice">
-               <form name="myForm" id="myForm" class="signup-form" method="post">{% csrf_token %} <!-- Secured -->
+               <form name="myForm" id="myForm" class="signup-form" action = "{% url 'register' %}" method="post">{% csrf_token %} <!-- Secured -->
 
                   <div class="form-group">
                      <label for="name">Full Name</label>
