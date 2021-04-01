@@ -27,25 +27,6 @@
         document.getElementById("haveAccount").click();
     }
 
-    // get and passing location 
-    var lat = "";
-
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-        
-      } else {
-        lat = "Geolocation is not supported by this browser.";
-        console.log(lat);
-      }
-    }
-  
-    function showPosition(position) {
-      lat = position.coords.latitude + "," + position.coords.longitude;
-      console.log(lat);
-      document.getElementById("userLocation").value = lat;
-      document.getElementById("passLat").click();
-    }
     //////////////////// Custom JS ////////////////////////// 
 
 // .................Toggle Button..................... 
