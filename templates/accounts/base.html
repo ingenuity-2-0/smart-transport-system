@@ -127,51 +127,64 @@
               <i class="ri-search-line" style="color: #e361ff; margin-left: 42%;"></i>
             </div>
           </div>
-          <!-- temp bar  -->
 
+          <!-- SEARCH BAR - FIND_DERECTIONS  -->
           <div class="col-md-4 offset-md-4 mt-5 border border-warning pt-3" id="findDerections">
-            <div class="input-group mb-3">
-              <input type="text" class="form-control border-warning" placeholder="From" aria-label="Recipient's username">
-              <input type="text" class="form-control border-warning" placeholder="To" aria-label="Recipient's username">
-              <div class="input-group-append">
-                <span class="input-group-text"><a href="{% url 'finddirection'%}"><i class="ri-search-line"></i></a></span>
+            <form>
+              <div class="form-row">
+                <div class=" col input-group mb-3">
+                  <input type="text" class="form-control" placeholder="From" required>                  
+                </div>
+                <div class=" col input-group mb-3">
+                  <input type="text" class="form-control" placeholder="To" required>                
+                </div>   
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </div>               
               </div>
-            </div>
+            </form>
           </div>
 
-          <div class="col-md-4 offset-md-4 mt-5 border border border-primary pt-3" id="nearbyStations">
-              <!-- creating form for temporary-->
-              <form action="{% url 'searchnearby_address' %}" method="post">{% csrf_token %}
-            <div class="input-group mb-3">
-              <input type="text" class="form-control border border-primary" placeholder="Search ...." aria-label="Recipient's username" name="userlocationaddress" required>
-              <div class="input-group-append">
-                <span class="input-group-text"><i class="ri-pin-distance-fill" onclick="getLocation()" style="color: #e80368;"data-toggle="tooltip" data-placement="bottom" title="From your location"></i></span>
-{#                <span class="input-group-text"><i type="submit" class="ri-search-line"></i></span>#}
-                  <input type="submit">
+          <!-- SEARCH BAR - NEARBY_STATIONS  -->
+          <div class="col-md-4 offset-md-4 mt-5 border border-warning pt-3" id="nearbyStations">
+            <form action="{% url 'searchnearby_address' %}" method="post">{% csrf_token %}
+              <div class="form-row">
+                <div class=" col input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Search ...." name="userlocationaddress" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                    <i class="ri-pin-distance-fill" onclick="getLocation()" style="color: #e80368;"data-toggle="tooltip" data-placement="bottom" title="From your location"></i>
+                   </span>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                  </div>
+                </div>
               </div>
-            </div>
-              </form>
+            </form>
           </div>
-                
-          <div class="col-md-4 offset-md-4 mt-5 border border-danger pt-3" id="specificBus">
-            <div class="input-group mb-3">
-              <input type="text" class="form-control border-danger" placeholder="Search ...." aria-label="Recipient's username" >
-              <div class="input-group-append">
-                <span class="input-group-text"><a href="{% url 'findspecificbus'%}"><i class="ri-search-line"></i></a></span>
+
+          <!-- SEARCH BAR - SPECIFIC_BUS  -->                
+          <div class="col-md-4 offset-md-4 mt-5 border border-warning pt-3" id="specificBus">
+            <form action="" method="post">{% csrf_token %}
+              <div class="form-row">
+                <div class=" col input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Search ...." aria-label="Recipient's username" name="userlocationaddress" required>
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                  </div>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
-        
-        <!-- invisible form -->
+          
+        <!-- Invisible Form - GET USER LOCATION -->
         <div class="col-md-4 offset-md-4 mt-5 pt-3 invisible">
           <form action="{% url 'searchnearby_latlng' %}" method="post"> {% csrf_token %} <!-- Secured -->
             <input id="userLocation" type="text" value="user location will visible here" name="userLocation">
             <input id="passLat" type="submit">
           </form>
         </div>
-        <!-- invisible form -->
+        <!-- Invisible Form - GET USER LOCATION -->
 
-        <!-- temp bar  -->
         </div>
       </div>
     </section><!-- End Features Section -->
