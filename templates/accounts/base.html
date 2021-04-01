@@ -143,7 +143,7 @@
               <!-- creating form for temporary-->
               <form action="{% url 'searchnearby_address' %}" method="post">{% csrf_token %}
             <div class="input-group mb-3">
-              <input type="text" class="form-control border border-primary" placeholder="Search ...." aria-label="Recipient's username" name="userlocationaddress">
+              <input type="text" class="form-control border border-primary" placeholder="Search ...." aria-label="Recipient's username" name="userlocationaddress" required>
               <div class="input-group-append">
                 <span class="input-group-text"><i class="ri-pin-distance-fill" onclick="getLocation()" style="color: #e80368;"data-toggle="tooltip" data-placement="bottom" title="From your location"></i></span>
 {#                <span class="input-group-text"><i type="submit" class="ri-search-line"></i></span>#}
