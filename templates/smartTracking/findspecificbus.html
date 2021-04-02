@@ -73,7 +73,7 @@
     </div>
   </header><!-- End Header -->
 
-  <main id="main">
+  <div id="main">
      <!-- ======= Breadcrumbs ======= -->
    <section id="breadcrumbs" class="breadcrumbs">
           <div class="container">
@@ -81,13 +81,16 @@
           </div>
    </section><!-- End Breadcrumbs -->
 <!-- ...............TIMELINE......................  -->
+  {% if check == 1 %}
+  <H1>Sorry, We can't find the bus "{{ error }}". Try again...</H1>
+  {% else %}
 <div class="container">
     <div class="row">
       <div class="col-6" style="background-color: #e43c5c;">
-       <h2>Bus Name: <span>B.T.R.C</span></h2>
-       <h2>Starting Point: <span>Gabtoli</span></h2>
-       <h2>End Point: <span>Dhanmondi</span></h2>
-       <h2>Total Distance: <span>70 km</span></h2>
+       <h2>Bus Name: <span>{{ bus_name }}</span></h2>
+       <h2>Starting Point: <span>{{ start }}</span></h2>
+       <h2>End Point: <span>{{ end }}</span></h2>
+{#       <h2>Total Distance: <span>70 km</span></h2>#}
        <p>dont worry about page design.it gonna be cool!</p>
       </div>
 
@@ -97,64 +100,68 @@
           </div>
           <ul class="timeline">
             <!-- REPEAT START -->
+               {% for a,b in routes %}
               <li>
                   <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
                   <div class="timeline-panel">
                       <div class="timeline-body">
-                          <p>PARBATIPUR</p>
+                          <p>{{ a }}</p>
                       </div>
                   </div>
               </li>
-
+                 {% if b is not None %}
               <li class="timeline-inverted">
                   <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
                   <div class="timeline-panel">
                       <div class="timeline-body">
-                          <p>RANGPUR</p>
+                          <p>{{ b }}</p>
                       </div>
                   </div>
               </li>
+                   {% endif %}
+              {% endfor %}
               <!-- REPEAT END -->
-              <li>
-                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
-                  <div class="timeline-panel">
-                      <div class="timeline-body">
-                          <p>DHAKA</p>
-                      </div>
-                  </div>
-              </li>
-
-              <li class="timeline-inverted">
-                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
-                  <div class="timeline-panel">
-                      <div class="timeline-body">
-                          <p>PARBATIPUR</p>
-                      </div>
-                  </div>
-              </li>
-
-              <li>
-                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
-                  <div class="timeline-panel">
-                      <div class="timeline-body">
-                          <p>DHANDONDI</p>
-                      </div>
-                  </div>
-              </li>
-
-              <li class="timeline-inverted">
-                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
-                  <div class="timeline-panel">
-                      <div class="timeline-body">
-                          <p>PARBATIPUR</p>
-                      </div>
-                  </div>
-              </li>
+{#              <li>#}
+{#                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>#}
+{#                  <div class="timeline-panel">#}
+{#                      <div class="timeline-body">#}
+{#                          <p>DHAKA</p>#}
+{#                      </div>#}
+{#                  </div>#}
+{#              </li>#}
+{##}
+{#              <li class="timeline-inverted">#}
+{#                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>#}
+{#                  <div class="timeline-panel">#}
+{#                      <div class="timeline-body">#}
+{#                          <p>PARBATIPUR</p>#}
+{#                      </div>#}
+{#                  </div>#}
+{#              </li>#}
+{##}
+{#              <li>#}
+{#                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>#}
+{#                  <div class="timeline-panel">#}
+{#                      <div class="timeline-body">#}
+{#                          <p>DHANDONDI</p>#}
+{#                      </div>#}
+{#                  </div>#}
+{#              </li>#}
+{##}
+{#              <li class="timeline-inverted">#}
+{#                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>#}
+{#                  <div class="timeline-panel">#}
+{#                      <div class="timeline-body">#}
+{#                          <p>PARBATIPUR</p>#}
+{#                      </div>#}
+{#                  </div>#}
+{#              </li>#}
               
           </ul>
       </div>
+    {% endif %}
 <!-- ...............TIMELINE.....................  -->       
-  </main><!-- End #main -->
+  </div><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

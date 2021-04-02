@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from backendCode.geocoding import reverse_geocoding, geocoding_from_address
 from backendCode.nearbyplaces import search_nearby_places
 from home_page.models import BusInformation
+
+
 # Create your views here.
 
 
@@ -34,7 +36,57 @@ def finddirection(request):
 
 
 def findspecificbus(request):
-    return render(request, 'smartTracking/findspecificbus.html')
+    bus_name_from_user = request.POST['bus_name']
+    try:
+        bus = BusInformation.objects.get(bus_name__iexact=bus_name_from_user)
+        ssource_destination = str(bus.bus_sourcetodestination)
+        start, end = ssource_destination.split(sep='-', maxsplit=1)
+        routes = bus.route_id.routes
+        routes = routes.split(sep=',')
+        list_route = []
+        for i in range(0, len(routes), 2):
+            if i + 1 == len(routes):
+                temp = (routes[i], None)
+            else:
+                temp = (routes[i], routes[i + 1])
+            list_route.append(temp)
+        data = {
+            'check': 0,
+            'bus_id': bus.bus_id,
+            'bus_name': bus.bus_name,
+            'start': start,
+            'end': end,
+            'routes': list_route
+        }
+        return render(request, 'smartTracking/findspecificbus.html', data)
+
+    except:
+        data = {
+            'check': 1,
+            "error": bus_name_from_user
+        }
+        return render(request, 'smartTracking/findspecificbus.html', data)
+
+        # ssource_destination = str(bus.bus_sourcetodestination)
+        # start, end = ssource_destination.split(sep='-', maxsplit=1)
+        # routes = bus.route_id.routes
+        # routes = routes.split(sep=',')
+        # list_route = []
+        # for i in range(0, len(routes), 2):
+        #     if i + 1 == len(routes):
+        #         temp = (routes[i], None)
+        #     else:
+        #         temp = (routes[i], routes[i + 1])
+        #     list_route.append(temp)
+        # data = {
+        #     'check': 0,
+        #     'bus_id': bus.bus_id,
+        #     'bus_name': bus.bus_name,
+        #     'start': start,
+        #     'end': end,
+        #     'routes': list_route
+        # }
+        # return render(request, 'smartTracking/findspecificbus.html', data)
 
 
 def allbuses(request):
@@ -61,7 +113,6 @@ def allbuses(request):
     }
     # print(routes)
     return render(request, 'smartTracking/allbuses.html', contex)
-
 
 # urls of smarttracking apps
 # {% url 'searchnearby'%}

@@ -164,10 +164,10 @@
 
           <!-- SEARCH BAR - SPECIFIC_BUS  -->                
           <div class="col-md-4 offset-md-4 mt-5 border border-warning pt-3" id="specificBus">
-            <form action="" method="post">{% csrf_token %}
+            <form action="{% url 'findspecificbus' %}" method="post">{% csrf_token %}
               <div class="form-row">
                 <div class=" col input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Search ...." aria-label="Recipient's username" name="userlocationaddress" required>
+                  <input type="text" class="form-control" placeholder="Search ...." aria-label="Recipient's username" name="bus_name" required>
                   <div class="input-group-append">
                     <button type="submit" class="btn btn-primary">Search</button>
                   </div>
