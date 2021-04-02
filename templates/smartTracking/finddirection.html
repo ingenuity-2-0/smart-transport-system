@@ -1,12 +1,347 @@
+<!-- load static  -->
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <title>STS - Nearby Bus Stations</title>
+
+  <!-- Favicons -->
+  <link rel="icon" href="{% static 'accounts/assets/img/favicon.png' %}" type="image/gif" sizes="32x32">
+  <link href="{% static 'accounts/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon"> 
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link href="{% static 'accounts/assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet"> 
+  <link href="{% static 'accounts/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet"> 
+  <link href="{% static 'accounts/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet"> 
+  <link href="{% static 'accounts/assets/vendor/venobox/venobox.css' %}" rel="stylesheet"> 
+  <link href="{% static 'accounts/assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet"> 
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'accounts/assets/css/custom.css' %}" rel="stylesheet"> <!-- CUSTOM --> 
+  <link href="{% static 'accounts/assets/css/style.css' %}" rel="stylesheet">  
+<!-- .....................................  -->
+<style>
+    #axis {
+    /* border: 3px solid #73AD21; */
+    position: absolute;
+    /* top: 45%; */
+    left: 65%;
+    }
+    
+    #axis img {
+    float: left;
+    transition: all 5s ease-in;
+    -webkit-transition: all 5s ease-in;
+    -moz-transition: all 5s ease-in;
+    -o-transition: all 5s ease-in;
+    }
+    
+    #axis .move-right {
+    transform: translateX(-500px);
+    -webkit-transform: translateX(-500px);
+    -o-transform: translateX(-500px);
+    -moz-transform: translateX(-500px);
+    }
+    
+    </style>
+<!-- .....................................  -->
 </head>
+
 <body>
-    <h1>find direction</h1>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+      <a href="{% url 'home' %}" class="mr-auto"><img src="{% static 'accounts/assets/img/logo.png' %}" width="150px" height="" alt="" class="img-fluid"></a>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+        {#                <!--make the nav bar dynamic using {% url 'home' %}#id -->#}
+
+          <li><a id="force-black" href="{% url 'home' %}">Home</a></li>
+          <li><a id="force-black" href="{% url 'home' %}#services">Search</a></li>
+          <li><a id="force-black" href="{% url 'home' %}#team">About</a></li>
+          <li><a id="force-black" href="{% url 'home' %}#contact">Contact</a></li>
+          {% if user.is_authenticated %}
+                    <li style="color: #e43c5c;">Hi</li>
+                    <li>
+                        <button id="myBtn" type="button" class="btn btn-red" onclick="document.location='{% url 'logout' %}'">
+                            Logout
+                        </button>
+                    </li>
+                    <!-- SignUP-Login Form -->
+                {% else %}
+                    <li>
+                        <button id="myBtn" type="button" class="btn btn-red" onclick="document.location='{% url 'accounts' %}'">
+                            SignUP/Login                      
+                        </button>
+                    </li>
+                {% endif %}
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+     <!-- ======= Breadcrumbs ======= -->
+   <section id="breadcrumbs" class="breadcrumbs">
+          <div class="container">
+            <h2><a href="{% url 'home' %}#services"><i class='bx bx-arrow-back'></i></a></h2>
+          </div>
+   </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+        <div class="container">
+          <div class="section-title">
+            <!-- <h2><i class='bx bxs-bus bx-md'></i></h2> -->
+            <h3>We found<span> 10 </span>buses for you </h3>
+          
+            <div style="display: inline-block;" class="row">
+                <div id="axis">
+                    <img class="move-right" width="100px" src="https://raw.githubusercontent.com/ShahriarShafin/MyCDN/master/1617399504136.png?token=AHVY5NVID6PSFRYQT2C2QRTAODE5E" />
+                </div>
+            </div>
+          <hr>
+            <p>Tap on bus name below to see its routes.</p>
+          </div>
+        </div>
+      </section><!-- End Services Section -->
+
+<!-- .........................................................  -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">BTRC BUS ROUTE</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <!-- ................TIMELINE.....................  -->
+
+<div class="row">
+    <div class="col">
+        
+        <ul class="timeline">
+          <!-- REPEAT START -->
+            <li>
+                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
+                <div class="timeline-panel">
+                    <div class="timeline-body">
+                        <p>PARBATIPUR</p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="timeline-inverted">
+                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
+                <div class="timeline-panel">
+                    <div class="timeline-body">
+                        <p>RANGPUR</p>
+                    </div>
+                </div>
+            </li>
+            <!-- REPEAT END -->
+            <li>
+                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
+                <div class="timeline-panel">
+                    <div class="timeline-body">
+                        <p>DHAKA</p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="timeline-inverted">
+                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
+                <div class="timeline-panel">
+                    <div class="timeline-body">
+                        <p>PARBATIPUR</p>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
+                <div class="timeline-panel">
+                    <div class="timeline-body">
+                        <p>DHANDONDI</p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="timeline-inverted">
+                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
+                <div class="timeline-panel">
+                    <div class="timeline-body">
+                        <p>PARBATIPUR</p>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>
+       
+       <!-- ................TIMELINE.....................  -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- .........................................................  -->
+
+ <!-- ======= Features Section ======= -->
+ <section id="features" class="features">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-6 col-6" data-toggle="modal" data-target="#exampleModalCenter">
+          <div class="icon-box">
+            <i class="ri-bus-fill" style="color: #ffbb2c;"></i>
+            <h3>Boishakhi Paribahan</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6" data-toggle="modal" data-target="#exampleModalCenter">
+          <div class="icon-box">
+            <i class="ri-bus-fill" style="color: #5578ff;"></i>
+            <h3>BRTC</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mt-4 mt-md-0" data-toggle="modal" data-target="#exampleModalCenter">
+          <div class="icon-box">
+            <i class="ri-bus-fill" style="color: #e80368;"></i>
+            <h3>Ashirbad Paribahan</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0" data-toggle="modal" data-target="#exampleModalCenter">
+          <div class="icon-box">
+            <i class="ri-bus-fill" style="color: #e361ff;"></i>
+            <h3>Al Makka Transport</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mt-4" data-toggle="modal" data-target="#exampleModalCenter">
+          <div class="icon-box">
+            <i class="ri-bus-fill" style="color: #47aeff;"></i>
+            <h3>Alif Enterprise</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mt-4" data-toggle="modal" data-target="#exampleModalCenter">
+          <div class="icon-box">
+            <i class="ri-bus-fill" style="color: #ffa76e;"></i>
+            <h3>Eiusmod Tempor</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mt-4">
+          <div class="icon-box">
+            <i class="ri-bus-fill" style="color: #11dbcf;"></i>
+            <h3><a href="">Midela Teren</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mt-4">
+          <div class="icon-box">
+            <i class="ri-bus-fill" style="color: #4233ff;"></i>
+            <h3><a href="">Pira Neve</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mt-4">
+          <div class="icon-box">
+            <i class="ri-bus-fill" style="color: #b2904f;"></i>
+            <h3><a href="">Dirada Pack</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mt-4">
+          <div class="icon-box">
+            <i class="ri-bus-fill" style="color: #b20969;"></i>
+            <h3><a href="">Moton Ideal</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mt-4">
+          <div class="icon-box">
+            <i class="ri-bus-fill" style="color: #ff5828;"></i>
+            <h3><a href="">Verdo Park</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 mt-4">
+          <div class="icon-box">
+            <i class="ri-bus-fill" style="color: #29cc61;"></i>
+            <h3><a href="">Flavor Nivelanda</a></h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Features Section -->
+<!-- ...............TIMELINE.....................  -->       
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container d-md-flex py-4">
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Smart Transport System</span></strong>. All Rights Reserved
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'accounts/assets//vendor/jquery/jquery.min.js' %}"></script>  
+  <script src="{% static 'accounts/assets//vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/php-email-form/validate.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script> 
+  <script src="{% static 'accounts/assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script> 
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'accounts/assets/js/main.js' %}"></script>
+  <script src="{% static 'accounts/assets/js/custom.js' %}"></script> 
+  <!-- ......................................  -->
+
+
+  <!-- ......................................................  -->
+  <script>
+    function initialiseAxisImages() {
+    var axis = document.getElementById('axis');
+    var axisImages = axis.getElementsByTagName('img');
+    
+    axisImages[0].classList.remove('move-right');
+    axisImages[1].classList.remove('move-left');
+    }
+    
+    window.addEventListener('load', initialiseAxisImages, false);
+    </script>
+  <!-- ......................................................  -->
 </body>
+
 </html>
