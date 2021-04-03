@@ -40,30 +40,29 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-        {#                <!--make the nav bar dynamic using {% url 'home' %}#id -->#}
-
           <li><a id="force-black" href="{% url 'home' %}">Home</a></li>
           <li><a id="force-black" href="{% url 'home' %}#services">Search</a></li>
           <li><a id="force-black" href="{% url 'home' %}#team">About</a></li>
           <li><a id="force-black" href="{% url 'home' %}#contact">Contact</a></li>
           {% if user.is_authenticated %}
                     <li style="color: #e43c5c;">Hi</li>
+                    <!-- SignUP-Login Form -->
                     <li>
                         <button id="myBtn" type="button" class="btn btn-red" onclick="document.location='{% url 'logout' %}'">
                             Logout
                         </button>
                     </li>
-                    <!-- SignUP-Login Form -->
+                    
                 {% else %}
                     <li>
                         <button id="myBtn" type="button" class="btn btn-red" onclick="document.location='{% url 'accounts' %}'">
                             SignUP/Login                      
                         </button>
                     </li>
+                    <!-- SignUP-Login Form -->
                 {% endif %}
         </ul>
       </nav><!-- .nav-menu -->
-
     </div>
   </header><!-- End Header -->
 
@@ -71,13 +70,30 @@
      <!-- ======= Breadcrumbs ======= -->
    <section id="breadcrumbs" class="breadcrumbs">
           <div class="container">
-            <h2>All buses inside Dhaka City</h2>
+            <h2><a href="{% url 'home' %}#services"><i class='bx bx-arrow-back'></i></a></h2>
           </div>
    </section><!-- End Breadcrumbs -->
-<!-- ...............TABLE......................  -->
+   
 
-<table class="table table-hover">
-    <thead>
+
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+  <div class="container">
+
+    <div class="section-title">
+      
+      <h3>All buses inside <span>Dhaka City</span></h3>
+    </div>
+
+    <div class="row content">
+     
+      <!-- ..................ADDED.................  -->
+      <!-- ...............TABLE......................  -->
+<input style="width: 30%;" id="myInput" type="text" class="form-group pull-left search form-control" placeholder="Search bus name / place name">
+
+<table class="table table-striped table-bordered">
+    <thead class="bg-success text-light">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Bus Name</th>
@@ -85,7 +101,7 @@
         <th scope="col">End Point</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody  id="myTable">
     {% for data in contex %}
       <tr>
         <th scope="row">{{ data.bus_id }}</th>
@@ -94,43 +110,17 @@
         <td>{{ data.end }}</td>
       </tr>
     {% endfor %}
-{#      <tr>#}
-{#        <th scope="row">2</th>#}
-{#        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>#}
-{#        <td>Mark</td>#}
-{#        <td>Otto</td>#}
-{#      </tr>#}
-{#      <tr>#}
-{#        <th scope="row">3</th>#}
-{#        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>#}
-{#        <td>Mark</td>#}
-{#        <td>Otto</td>#}
-{#      </tr>#}
-{#      <tr>#}
-{#        <th scope="row">4</th>#}
-{#        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>#}
-{#        <td>Mark</td>#}
-{#        <td>Otto</td>#}
-{#      </tr>#}
-{#      <tr>#}
-{#        <th scope="row">5</th>#}
-{#        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>#}
-{#        <td>Mark</td>#}
-{#        <td>Otto</td>#}
-{#      </tr>#}
-{#      <tr>#}
-{#        <th scope="row">6</th>#}
-{#        <td>Jacob <br><span style="color:#e43c5c">farmgate --->Gulistan--->Dhanmondi--->UAP--->Parbatipur</span></td>#}
-{#        <td>Mark</td>#}
-{#        <td>Otto</td>#}
-{#      </tr>#}
     </tbody>
   </table>
-
-
 <!-- ...............TABLE......................  -->
-    
-        
+      <!-- ..................ADDED.................  -->
+
+
+
+    </div>
+  </div>
+</section><!-- End About Section -->
+     
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

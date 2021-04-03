@@ -52,3 +52,14 @@ function initialiseAxisImages() {
   
   window.addEventListener('load', initialiseAxisImages, false);
 // ..............MOVING BUS.................. 
+
+// ..............TABLE SEARCHING.................. 
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+// ..............TABLE SEARCHING.................. 
