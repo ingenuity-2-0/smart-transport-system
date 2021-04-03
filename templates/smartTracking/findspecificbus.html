@@ -35,7 +35,11 @@
 <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script> -->
 <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
 <!----------------- TIMELINE ---------------------------->
-
+<style>
+  .shadow-me {
+    box-shadow: 11px 1rem 2rem 0px rgb(0 0 0 / 15%);
+}
+</style>
 </head>
 
 <body>
@@ -91,11 +95,20 @@
         {% else %}
         <div class="row">
           <div class="col-6">
-            <!-- .........................  -->
-            <h2>Bus Name: <span>{{ bus_name }}</span></h2>
-            <h2>Starting Point: <span>{{ start }}</span></h2>
-            <h2>End Point: <span>{{ end }}</span></h2>
-            <!-- .........................  -->
+<!-- ...........................  -->
+
+
+
+<div class="card border-info shadow-me" style="height:20%;">
+  <h2 class="card-header">Bus Name: <span style="color: #e43c5c;">{{ bus_name }}</span></h2>
+  <div class="card-body">
+    <h2 class="card-title">Starting Point: <span style="color: #e43c5c;">{{ start }}</span></h2>
+    <h2 class="card-title">End Point: <span style="color: #e43c5c;">{{ end }}</span></h2>
+    <h2 class="card-title">Total Distance: <span style="color: #e43c5c;">10 Km</span></h2>
+  </div>
+</div>
+
+
           </div>
           <div class="col-6">
             <!-- ...............................  -->

@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header.header-scrolled, #header.header-inner-pages {
-  background: rgba(255, 255, 255, 0.933);
+  background: rgb(255, 255, 255);
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   padding: 10px 0px 0px 0px;
 }
