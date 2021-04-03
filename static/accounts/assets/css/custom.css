@@ -44,6 +44,30 @@
   }
 /* ................................NEARBY STATION PAGE................................... */
 
+/* ................................FIND DIRECTION PAGE................................... */
+#axis {
+  /* border: 3px solid #73AD21; */
+  position: absolute;
+  /* top: 45%; */
+  left: 65%;
+  }
+  
+  #axis img {
+  float: left;
+  transition: all 5s ease-in;
+  -webkit-transition: all 5s ease-in;
+  -moz-transition: all 5s ease-in;
+  -o-transition: all 5s ease-in;
+  }
+  
+  #axis .move-right {
+  transform: translateX(-500px);
+  -webkit-transform: translateX(-500px);
+  -o-transform: translateX(-500px);
+  -moz-transform: translateX(-500px);
+  }
+/* ................................FIND DIRECTION PAGE................................... */
+
 /* ................................SPECIFIC BUS PAGE................................... */
    .timeline {
   list-style: none;

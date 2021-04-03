@@ -40,3 +40,15 @@ function showPosition(position) {
   document.getElementById("passLat").click();
 }
 // ..............GOOGLE MAP.................. 
+
+// ..............MOVING BUS.................. 
+function initialiseAxisImages() {
+  var axis = document.getElementById('axis');
+  var axisImages = axis.getElementsByTagName('img');
+  
+  axisImages[0].classList.remove('move-right');
+  axisImages[1].classList.remove('move-left');
+  }
+  
+  window.addEventListener('load', initialiseAxisImages, false);
+// ..............MOVING BUS.................. 

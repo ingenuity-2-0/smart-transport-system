@@ -29,32 +29,13 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'accounts/assets/css/custom.css' %}" rel="stylesheet"> <!-- CUSTOM --> 
   <link href="{% static 'accounts/assets/css/style.css' %}" rel="stylesheet">  
-<!-- .....................................  -->
 <style>
-    #axis {
-    /* border: 3px solid #73AD21; */
-    position: absolute;
-    /* top: 45%; */
-    left: 65%;
-    }
-    
-    #axis img {
-    float: left;
-    transition: all 5s ease-in;
-    -webkit-transition: all 5s ease-in;
-    -moz-transition: all 5s ease-in;
-    -o-transition: all 5s ease-in;
-    }
-    
-    #axis .move-right {
-    transform: translateX(-500px);
-    -webkit-transform: translateX(-500px);
-    -o-transform: translateX(-500px);
-    -moz-transform: translateX(-500px);
-    }
-    
-    </style>
-<!-- .....................................  -->
+  
+  .tblcenter{
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 </head>
 
 <body>
@@ -109,10 +90,16 @@
           
             <div style="display: inline-block;" class="row">
                 <div id="axis">
-                    <img class="move-right" width="100px" src="https://raw.githubusercontent.com/ShahriarShafin/MyCDN/master/1617399504136.png?token=AHVY5NVID6PSFRYQT2C2QRTAODE5E" />
+                    <img class="move-right" width="100px" src="https://raw.githubusercontent.com/ShahriarShafin/MyCDN/master/1617399504136.png?token=AHVY5NVID6PSFRYQT2C2QRTAODE5E"/>
                 </div>
             </div>
           <hr>
+          <table class="tblcenter" style="width:65%;">
+            <tr>
+              <td style="text-align: left;">PABBATIPUR</td>
+              <td style="text-align: right;">DINAJPUR</td>
+            </tr>
+          </table>
             <p>Tap on bus name below to see its routes.</p>
           </div>
         </div>
@@ -121,8 +108,10 @@
 <!-- .........................................................  -->
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- --------------------------------- POPUP START ---------------------------------- -->
+<!-- REPEAT START - Looping id -->
+<div class="modal fade" id="bus1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -132,72 +121,34 @@
         </button>
       </div>
       <div class="modal-body">
-       <!-- ................TIMELINE.....................  -->
+        <h5 class="text-center">Total Distance: <span>5Km</span></h5>
+        <!-- ................TIMELINE.....................  -->
+        <div class="row">
+          <div class="col">
+            <ul class="timeline">
 
-<div class="row">
-    <div class="col">
-        
-        <ul class="timeline">
-          <!-- REPEAT START -->
-            <li>
+              <li>
                 <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
                 <div class="timeline-panel">
-                    <div class="timeline-body">
-                        <p>PARBATIPUR</p>
-                    </div>
+                  <div class="timeline-body">
+                    <p>PARBATIPUR</p>
+                  </div>
                 </div>
-            </li>
+              </li>
 
-            <li class="timeline-inverted">
+              <li class="timeline-inverted">
                 <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
                 <div class="timeline-panel">
-                    <div class="timeline-body">
-                        <p>RANGPUR</p>
-                    </div>
+                  <div class="timeline-body">
+                    <p>RANGPUR</p>
+                  </div>
                 </div>
-            </li>
-            <!-- REPEAT END -->
-            <li>
-                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
-                <div class="timeline-panel">
-                    <div class="timeline-body">
-                        <p>DHAKA</p>
-                    </div>
-                </div>
-            </li>
-
-            <li class="timeline-inverted">
-                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
-                <div class="timeline-panel">
-                    <div class="timeline-body">
-                        <p>PARBATIPUR</p>
-                    </div>
-                </div>
-            </li>
-
-            <li>
-                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
-                <div class="timeline-panel">
-                    <div class="timeline-body">
-                        <p>DHANDONDI</p>
-                    </div>
-                </div>
-            </li>
-
-            <li class="timeline-inverted">
-                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
-                <div class="timeline-panel">
-                    <div class="timeline-body">
-                        <p>PARBATIPUR</p>
-                    </div>
-                </div>
-            </li>
-
-        </ul>
-    </div>
-</div>
-       
-       <!-- ................TIMELINE.....................  -->
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+        <!-- ................TIMELINE.....................  -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -206,24 +157,74 @@
     </div>
   </div>
 </div>
+<!-- REPEAT END -->
+<!-- --------------------------------- POPUP END ---------------------------------- -->
 
+<!-- --------------------------------- POPUP START ---------------------------------- -->
+<!-- REPEAT START - Looping id -->
+<div class="modal fade" id="bus2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">ALIF ENTERPRISE</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 class="text-center">Total Distance: <span>10Km</span></h5>
+        <!-- ................TIMELINE.....................  -->
+        <div class="row">
+          <div class="col">
+            <ul class="timeline">
 
+              <li>
+                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
+                <div class="timeline-panel">
+                  <div class="timeline-body">
+                    <p>Dhanmondi</p>
+                  </div>
+                </div>
+              </li>
 
+              <li class="timeline-inverted">
+                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
+                <div class="timeline-panel">
+                  <div class="timeline-body">
+                    <p>Farmgate</p>
+                  </div>
+                </div>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+        <!-- ................TIMELINE.....................  -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- REPEAT END -->
+<!-- --------------------------------- POPUP END ---------------------------------- -->
 
-<!-- .........................................................  -->
-
+<!-- --------------------------------- MAIN SECTION ---------------------------------- -->
  <!-- ======= Features Section ======= -->
  <section id="features" class="features">
     <div class="container">
-
       <div class="row">
-        <div class="col-lg-3 col-md-4 col-6 col-6" data-toggle="modal" data-target="#exampleModalCenter">
+
+        <div class="col-lg-3 col-md-4 col-6 col-6" data-toggle="modal" data-target="#bus1">
           <div class="icon-box">
             <i class="ri-bus-fill" style="color: #ffbb2c;"></i>
             <h3>Boishakhi Paribahan</h3>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-6" data-toggle="modal" data-target="#exampleModalCenter">
+        <div class="col-lg-3 col-md-4 col-6" data-toggle="modal" data-target="#bus2">
           <div class="icon-box">
             <i class="ri-bus-fill" style="color: #5578ff;"></i>
             <h3>BRTC</h3>
@@ -241,59 +242,12 @@
             <h3>Al Makka Transport</h3>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-6 mt-4" data-toggle="modal" data-target="#exampleModalCenter">
-          <div class="icon-box">
-            <i class="ri-bus-fill" style="color: #47aeff;"></i>
-            <h3>Alif Enterprise</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mt-4" data-toggle="modal" data-target="#exampleModalCenter">
-          <div class="icon-box">
-            <i class="ri-bus-fill" style="color: #ffa76e;"></i>
-            <h3>Eiusmod Tempor</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mt-4">
-          <div class="icon-box">
-            <i class="ri-bus-fill" style="color: #11dbcf;"></i>
-            <h3><a href="">Midela Teren</a></h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mt-4">
-          <div class="icon-box">
-            <i class="ri-bus-fill" style="color: #4233ff;"></i>
-            <h3><a href="">Pira Neve</a></h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mt-4">
-          <div class="icon-box">
-            <i class="ri-bus-fill" style="color: #b2904f;"></i>
-            <h3><a href="">Dirada Pack</a></h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mt-4">
-          <div class="icon-box">
-            <i class="ri-bus-fill" style="color: #b20969;"></i>
-            <h3><a href="">Moton Ideal</a></h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mt-4">
-          <div class="icon-box">
-            <i class="ri-bus-fill" style="color: #ff5828;"></i>
-            <h3><a href="">Verdo Park</a></h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mt-4">
-          <div class="icon-box">
-            <i class="ri-bus-fill" style="color: #29cc61;"></i>
-            <h3><a href="">Flavor Nivelanda</a></h3>
-          </div>
-        </div>
-      </div>
 
+      </div>
     </div>
   </section><!-- End Features Section -->
-<!-- ...............TIMELINE.....................  -->       
+  <!-- --------------------------------- MAIN SECTION ---------------------------------- -->
+     
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -331,15 +285,7 @@
 
   <!-- ......................................................  -->
   <script>
-    function initialiseAxisImages() {
-    var axis = document.getElementById('axis');
-    var axisImages = axis.getElementsByTagName('img');
-    
-    axisImages[0].classList.remove('move-right');
-    axisImages[1].classList.remove('move-left');
-    }
-    
-    window.addEventListener('load', initialiseAxisImages, false);
+
     </script>
   <!-- ......................................................  -->
 </body>
