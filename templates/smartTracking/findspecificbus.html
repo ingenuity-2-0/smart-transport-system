@@ -46,8 +46,6 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-        {#                <!--make the nav bar dynamic using {% url 'home' %}#id -->#}
-
           <li><a id="force-black" href="{% url 'home' %}">Home</a></li>
           <li><a id="force-black" href="{% url 'home' %}#services">Search</a></li>
           <li><a id="force-black" href="{% url 'home' %}#team">About</a></li>
@@ -69,99 +67,76 @@
                 {% endif %}
         </ul>
       </nav><!-- .nav-menu -->
-
     </div>
   </header><!-- End Header -->
 
   <div id="main">
-     <!-- ======= Breadcrumbs ======= -->
-   <section id="breadcrumbs" class="breadcrumbs">
-          <div class="container">
-            <h2><a href="{% url 'home' %}#services"><i class='bx bx-arrow-back'></i></a></h2>
-          </div>
-   </section><!-- End Breadcrumbs -->
-<!-- ...............TIMELINE......................  -->
-  {% if check == 1 %}
-  <H1>Sorry, We can't find the bus "{{ error }}". Try again...</H1>
-  {% else %}
-<div class="container">
-    <div class="row">
-      <div class="col-6" style="background-color: #e43c5c;">
-       <h2>Bus Name: <span>{{ bus_name }}</span></h2>
-       <h2>Starting Point: <span>{{ start }}</span></h2>
-       <h2>End Point: <span>{{ end }}</span></h2>
-{#       <h2>Total Distance: <span>70 km</span></h2>#}
-       <p>dont worry about page design.it gonna be cool!</p>
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <h2><a href="{% url 'home' %}#services"><i class='bx bx-arrow-back'></i></a></h2>
       </div>
+    </section><!-- End Breadcrumbs -->
 
-      <div class="col-6">
-          <div class="page-header text-center">
-              <h1 id="timeline">BUS ROUTE</h1>
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+        {% if check == 1 %}
+        <div class="section-title">
+          <h3><span>Sorry</span> , We can't find the bus "{{ error }}". Try again...</h3>
+          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae
+            autem.</p>
+        </div>
+        {% else %}
+        <div class="row content">
+          <div class="col-lg-6">
+            <!-- .........................  -->
+            <h2>Bus Name: <span>{{ bus_name }}</span></h2>
+            <h2>Starting Point: <span>{{ start }}</span></h2>
+            <h2>End Point: <span>{{ end }}</span></h2>
+            <!-- .........................  -->
           </div>
-          <ul class="timeline">
-            <!-- REPEAT START -->
-               {% for a,b in routes %}
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <!-- ...............................  -->
+            <div class="page-header text-center">
+              <h1 id="timeline">BUS ROUTE</h1>
+            </div>
+            <ul class="timeline">
+              <!-- REPEAT START -->
+              {% for a,b in routes %}
               <li>
-                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
-                  <div class="timeline-panel">
-                      <div class="timeline-body">
-                          <p>{{ a }}</p>
-                      </div>
+                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
+                <div class="timeline-panel">
+                  <div class="timeline-body">
+                    <p>{{ a }}</p>
                   </div>
+                </div>
               </li>
-                 {% if b is not None %}
+              {% if b is not None %}
               <li class="timeline-inverted">
-                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
-                  <div class="timeline-panel">
-                      <div class="timeline-body">
-                          <p>{{ b }}</p>
-                      </div>
+                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
+                <div class="timeline-panel">
+                  <div class="timeline-body">
+                    <p>{{ b }}</p>
                   </div>
+                </div>
               </li>
-                   {% endif %}
+              {% endif %}
               {% endfor %}
               <!-- REPEAT END -->
-{#              <li>#}
-{#                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>#}
-{#                  <div class="timeline-panel">#}
-{#                      <div class="timeline-body">#}
-{#                          <p>DHAKA</p>#}
-{#                      </div>#}
-{#                  </div>#}
-{#              </li>#}
-{##}
-{#              <li class="timeline-inverted">#}
-{#                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>#}
-{#                  <div class="timeline-panel">#}
-{#                      <div class="timeline-body">#}
-{#                          <p>PARBATIPUR</p>#}
-{#                      </div>#}
-{#                  </div>#}
-{#              </li>#}
-{##}
-{#              <li>#}
-{#                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>#}
-{#                  <div class="timeline-panel">#}
-{#                      <div class="timeline-body">#}
-{#                          <p>DHANDONDI</p>#}
-{#                      </div>#}
-{#                  </div>#}
-{#              </li>#}
-{##}
-{#              <li class="timeline-inverted">#}
-{#                  <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>#}
-{#                  <div class="timeline-panel">#}
-{#                      <div class="timeline-body">#}
-{#                          <p>PARBATIPUR</p>#}
-{#                      </div>#}
-{#                  </div>#}
-{#              </li>#}
-              
-          </ul>
+            </ul>
+            <!-- ...............................  -->
+          </div>
+        </div>
+        {% endif %}
       </div>
-    {% endif %}
-<!-- ...............TIMELINE.....................  -->       
+    </section><!-- End About Section -->
+
+
+    <!-- ...............TIMELINE.....................  -->
   </div><!-- End #main -->
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
