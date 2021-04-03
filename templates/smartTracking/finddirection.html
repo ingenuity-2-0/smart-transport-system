@@ -86,7 +86,7 @@
         <div class="container">
           <div class="section-title">
             <!-- <h2><i class='bx bxs-bus bx-md'></i></h2> -->
-            <h3>We found<span> 10 </span>buses for you </h3>
+            <h3>We found<span>  {{ Number_of_bus }} </span>buses for you </h3>
           
             <div style="display: inline-block;" class="row">
                 <div id="axis">
@@ -96,8 +96,8 @@
           <hr>
           <table class="tblcenter" style="width:65%;">
             <tr>
-              <td style="text-align: left;">PABBATIPUR</td>
-              <td style="text-align: right;">DINAJPUR</td>
+              <td style="text-align: left;">{{ From }}</td>
+              <td style="text-align: right;">{{ To }}</td>
             </tr>
           </table>
             <p>Tap on bus name below to see its routes.</p>
@@ -110,28 +110,29 @@
 
 <!-- --------------------------------- POPUP START ---------------------------------- -->
 <!-- REPEAT START - Looping id -->
-<div class="modal fade" id="bus1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  
+      {% for data in bus_list %}
+<div class="modal fade" id="{{ data.bus_id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">BTRC BUS ROUTE</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">{{ data.bus_name }} BUS ROUTE</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <h5 class="text-center">Total Distance: <span>5Km</span></h5>
+        <h5 class="text-center">Total Distance: <span>{{ data.distance }}Km</span></h5>
         <!-- ................TIMELINE.....................  -->
         <div class="row">
           <div class="col">
             <ul class="timeline">
-
+                {% for a, b in data.bus_route %}
               <li>
                 <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
                 <div class="timeline-panel">
                   <div class="timeline-body">
-                    <p>PARBATIPUR</p>
+                    <p>{{ a }}</p>
                   </div>
                 </div>
               </li>
@@ -140,11 +141,11 @@
                 <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
                 <div class="timeline-panel">
                   <div class="timeline-body">
-                    <p>RANGPUR</p>
+                    <p>{{ b }}</p>
                   </div>
                 </div>
               </li>
-              
+              {% endfor %}
             </ul>
           </div>
         </div>
@@ -157,95 +158,101 @@
     </div>
   </div>
 </div>
-<!-- REPEAT END -->
+{% endfor %}
+      <!-- REPEAT END -->
 <!-- --------------------------------- POPUP END ---------------------------------- -->
 
 <!-- --------------------------------- POPUP START ---------------------------------- -->
 <!-- REPEAT START - Looping id -->
-<div class="modal fade" id="bus2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">ALIF ENTERPRISE</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h5 class="text-center">Total Distance: <span>10Km</span></h5>
-        <!-- ................TIMELINE.....................  -->
-        <div class="row">
-          <div class="col">
-            <ul class="timeline">
-
-              <li>
-                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
-                <div class="timeline-panel">
-                  <div class="timeline-body">
-                    <p>Dhanmondi</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="timeline-inverted">
-                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>
-                <div class="timeline-panel">
-                  <div class="timeline-body">
-                    <p>Farmgate</p>
-                  </div>
-                </div>
-              </li>
-              
-            </ul>
-          </div>
-        </div>
-        <!-- ................TIMELINE.....................  -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-      </div>
-    </div>
-  </div>
-</div>
+{#<div class="modal fade" id="bus2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  #}
+{#  aria-hidden="true">#}
+{#  <div class="modal-dialog modal-dialog-centered" role="document">#}
+{#    <div class="modal-content">#}
+{#      <div class="modal-header">#}
+{#        <h5 class="modal-title" id="exampleModalLongTitle">ALIF ENTERPRISE</h5>#}
+{#        <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#          <span aria-hidden="true">&times;</span>#}
+{#        </button>#}
+{#      </div>#}
+{#      <div class="modal-body">#}
+{#        <h5 class="text-center">Total Distance: <span>10Km</span></h5>#}
+{#        <!-- ................TIMELINE.....................  -->#}
+{#        <div class="row">#}
+{#          <div class="col">#}
+{#            <ul class="timeline">#}
+{##}
+{#              <li>#}
+{#                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>#}
+{#                <div class="timeline-panel">#}
+{#                  <div class="timeline-body">#}
+{#                    <p>Dhanmondi</p>#}
+{#                  </div>#}
+{#                </div>#}
+{#              </li>#}
+{##}
+{#              <li class="timeline-inverted">#}
+{#                <div class="timeline-badge primary"><a><i class='bx bxs-map'></i></a></div>#}
+{#                <div class="timeline-panel">#}
+{#                  <div class="timeline-body">#}
+{#                    <p>Farmgate</p>#}
+{#                  </div>#}
+{#                </div>#}
+{#              </li>#}
+{#              #}
+{#            </ul>#}
+{#          </div>#}
+{#        </div>#}
+{#        <!-- ................TIMELINE.....................  -->#}
+{#      </div>#}
+{#      <div class="modal-footer">#}
+{#        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>#}
+{#        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
 <!-- REPEAT END -->
 <!-- --------------------------------- POPUP END ---------------------------------- -->
 
 <!-- --------------------------------- MAIN SECTION ---------------------------------- -->
  <!-- ======= Features Section ======= -->
+
  <section id="features" class="features">
+
     <div class="container">
       <div class="row">
-
-        <div class="col-lg-3 col-md-4 col-6 col-6" data-toggle="modal" data-target="#bus1">
+{% for data in bus_list %}
+        <div class="col-lg-3 col-md-4 col-6 col-6" data-toggle="modal" data-target="#{{ data.bus_id }}">
           <div class="icon-box">
             <i class="ri-bus-fill" style="color: #ffbb2c;"></i>
-            <h3>Boishakhi Paribahan</h3>
+            <h3>{{ data.bus_name }}</h3>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-6" data-toggle="modal" data-target="#bus2">
-          <div class="icon-box">
-            <i class="ri-bus-fill" style="color: #5578ff;"></i>
-            <h3>BRTC</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mt-4 mt-md-0" data-toggle="modal" data-target="#exampleModalCenter">
-          <div class="icon-box">
-            <i class="ri-bus-fill" style="color: #e80368;"></i>
-            <h3>Ashirbad Paribahan</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0" data-toggle="modal" data-target="#exampleModalCenter">
-          <div class="icon-box">
-            <i class="ri-bus-fill" style="color: #e361ff;"></i>
-            <h3>Al Makka Transport</h3>
-          </div>
-        </div>
+{% endfor %}
+{#        <div class="col-lg-3 col-md-4 col-6" data-toggle="modal" data-target="#bus2">#}
+{#          <div class="icon-box">#}
+{#            <i class="ri-bus-fill" style="color: #5578ff;"></i>#}
+{#            <h3>BRTC</h3>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="col-lg-3 col-md-4 col-6 mt-4 mt-md-0" data-toggle="modal" data-target="#exampleModalCenter">#}
+{#          <div class="icon-box">#}
+{#            <i class="ri-bus-fill" style="color: #e80368;"></i>#}
+{#            <h3>Ashirbad Paribahan</h3>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0" data-toggle="modal" data-target="#exampleModalCenter">#}
+{#          <div class="icon-box">#}
+{#            <i class="ri-bus-fill" style="color: #e361ff;"></i>#}
+{#            <h3>Al Makka Transport</h3>#}
+{#          </div>#}
+{#        </div>#}
 
       </div>
     </div>
+
   </section><!-- End Features Section -->
+
   <!-- --------------------------------- MAIN SECTION ---------------------------------- -->
      
   </main><!-- End #main -->

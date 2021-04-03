@@ -130,13 +130,13 @@
 
           <!-- SEARCH BAR - FIND_DERECTIONS  -->
           <div class="col-md-4 offset-md-4 mt-5 border border-warning pt-3" id="findDerections">
-            <form>
+            <form action="{% url 'finddirection' %}" method="post">{% csrf_token %}
               <div class="form-row">
                 <div class=" col input-group mb-3">
-                  <input type="text" class="form-control" placeholder="From" required>                  
+                  <input type="text" class="form-control" placeholder="From" required name="from">
                 </div>
                 <div class=" col input-group mb-3">
-                  <input type="text" class="form-control" placeholder="To" required>                
+                  <input type="text" class="form-control" placeholder="To" required name="to">
                 </div>   
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-primary">Search</button>
