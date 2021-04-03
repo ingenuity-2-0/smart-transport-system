@@ -1,6 +1,6 @@
 # [Smart Transport System](https://github.com/ShahriarShafin/bus-transport-system)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue) 
-![coverage](https://img.shields.io/badge/coverage-25%25-green)
+![coverage](https://img.shields.io/badge/coverage-70%25-green)
 ![repo size](https://img.shields.io/github/repo-size/Ingenuity-2-0/SmartTransportSystem?color=red)
 
 ## About this project
