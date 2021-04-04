@@ -52,8 +52,12 @@ def finddirection(request):
         # print('Start_index' + str(start_index))
         # print('End_index' + str(end_index))
         bus_route = []
-        for i in range(start_index, end_index+1):
-            bus_route.append(bus_raw_route[i])
+        if start_index <= end_index:
+            for i in range(start_index, end_index+1):
+                bus_route.append(bus_raw_route[i])
+        else:
+            for i in range(end_index, start_index+1):
+                bus_route.append(bus_raw_route[i])
         distance = find_distance(bus_route)
         # print(bus_route)
         list_route = []
@@ -71,7 +75,7 @@ def finddirection(request):
         }
         bus_list.append(data)
         length = len(bus_list)
-        print(bus_list)
+        # print(bus_list)
     contex = {
         'From': start,
         'To': end,
@@ -84,7 +88,8 @@ def finddirection(request):
 def findspecificbus(request):
     bus_name_from_user = str(request.POST['bus_name'])
     try:
-        bus = BusInformation.objects.get(bus_name__iexact=bus_name_from_user)
+        buses = BusInformation.objects.filter(bus_name__iexact=bus_name_from_user)
+        bus = buses[0]
         ssource_destination = str(bus.bus_sourcetodestination)
         start, end = ssource_destination.split(sep='-', maxsplit=1)
         routes = bus.route_id.routes
