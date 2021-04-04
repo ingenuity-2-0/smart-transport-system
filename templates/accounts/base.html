@@ -35,6 +35,41 @@
   <link href="{% static 'accounts/assets/css/custom.css' %}" rel="stylesheet"> <!-- New Created --> 
   <link href="{% static 'accounts/assets/css/style.css' %}" rel="stylesheet">  
 </head>
+<style>
+  /* search suggestions  */
+.autocomplete {
+position: relative;
+display: inline-block;
+}
+
+.autocomplete-items {
+position: absolute;
+border: 1px solid #d4d4d4;
+border-bottom: none;
+border-top: none;
+z-index: 99;
+
+top: 100%;
+left: 0;
+right: 0;
+}
+
+.autocomplete-items div {
+padding: 10px;
+cursor: pointer;
+background-color: #fff; 
+border-bottom: 1px solid #d4d4d4; 
+}
+
+.autocomplete-items div:hover {
+background-color: #e9e9e9; 
+}
+
+.autocomplete-active {
+background-color: DodgerBlue !important; 
+color: #ffffff; 
+/* search suggestions  */
+</style>
 
 <body>
   
@@ -131,12 +166,16 @@
           <!-- SEARCH BAR - FIND_DERECTIONS  -->
           <div class="col-md-4 offset-md-4 mt-5 border border-warning pt-3" id="findDerections">
             <form action="{% url 'finddirection' %}" method="post">{% csrf_token %}
-              <div class="form-row">
+              <div class="form-row" autocomplete="off">
                 <div class=" col input-group mb-3">
-                  <input type="text" class="form-control" placeholder="From" required name="from">
+                  <div class="autocomplete">
+                       <input  id="inputFrom" type="text" class="form-control" placeholder="From" required name="from" autocomplete="off">
+                  </div>
                 </div>
                 <div class=" col input-group mb-3">
-                  <input type="text" class="form-control" placeholder="To" required name="to">
+                  <div class="autocomplete">
+                    <input id="inputTo" type="text" class="form-control" placeholder="To" required name="to" autocomplete="off">
+                  </div>
                 </div>   
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-primary">Search</button>
@@ -164,10 +203,12 @@
 
           <!-- SEARCH BAR - SPECIFIC_BUS  -->                
           <div class="col-md-4 offset-md-4 mt-5 border border-warning pt-3" id="specificBus">
-            <form action="{% url 'findspecificbus' %}" method="post">{% csrf_token %}
+            <form action="{% url 'findspecificbus' %}" method="post" autocomplete="off">{% csrf_token %}
               <div class="form-row">
                 <div class=" col input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Search ...." aria-label="Recipient's username" name="bus_name" required>
+                  <div class="autocomplete">
+                    <input id="myInput" type="text" class="form-control" placeholder="Search ...." aria-label="Recipient's username" name="bus_name" required>
+                  </div>
                   <div class="input-group-append">
                     <button type="submit" class="btn btn-primary">Search</button>
                   </div>
