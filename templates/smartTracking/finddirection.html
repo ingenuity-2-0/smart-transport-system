@@ -29,13 +29,7 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'accounts/assets/css/custom.css' %}" rel="stylesheet"> <!-- CUSTOM --> 
   <link href="{% static 'accounts/assets/css/style.css' %}" rel="stylesheet">  
-<style>
-  
-  .tblcenter{
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>
+
 </head>
 
 <body>
@@ -86,7 +80,7 @@
         <div class="container">
           <div class="section-title">
             <!-- <h2><i class='bx bxs-bus bx-md'></i></h2> -->
-            <h3>We found<span>  {{ Number_of_bus }} </span>buses for you </h3>
+            <h3>We found<span>  {{ Number_of_bus }} Buses</span> for you </h3>
           
             <div style="display: inline-block;" class="row">
                 <div id="axis">
@@ -94,7 +88,7 @@
                 </div>
             </div>
           <hr>
-          <table class="tblcenter" style="width:65%;">
+          <table class="tblcenter">
             <tr>
               <td style="text-align: left;">{{ From }}</td>
               <td style="text-align: right;">{{ To }}</td>
@@ -222,32 +216,13 @@
     <div class="container">
       <div class="row">
 {% for data in bus_list %}
-        <div class="col-lg-3 col-md-4 col-6 col-6" data-toggle="modal" data-target="#{{ data.bus_id }}">
+        <div class="col-lg-3 col-md-4 col-6 mt-4" data-toggle="modal" data-target="#{{ data.bus_id }}">
           <div class="icon-box">
             <i class="ri-bus-fill" style="color: #ffbb2c;"></i>
             <h3>{{ data.bus_name }}</h3>
           </div>
         </div>
 {% endfor %}
-{#        <div class="col-lg-3 col-md-4 col-6" data-toggle="modal" data-target="#bus2">#}
-{#          <div class="icon-box">#}
-{#            <i class="ri-bus-fill" style="color: #5578ff;"></i>#}
-{#            <h3>BRTC</h3>#}
-{#          </div>#}
-{#        </div>#}
-{#        <div class="col-lg-3 col-md-4 col-6 mt-4 mt-md-0" data-toggle="modal" data-target="#exampleModalCenter">#}
-{#          <div class="icon-box">#}
-{#            <i class="ri-bus-fill" style="color: #e80368;"></i>#}
-{#            <h3>Ashirbad Paribahan</h3>#}
-{#          </div>#}
-{#        </div>#}
-{#        <div class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0" data-toggle="modal" data-target="#exampleModalCenter">#}
-{#          <div class="icon-box">#}
-{#            <i class="ri-bus-fill" style="color: #e361ff;"></i>#}
-{#            <h3>Al Makka Transport</h3>#}
-{#          </div>#}
-{#        </div>#}
-
       </div>
     </div>
 
