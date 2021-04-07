@@ -3,7 +3,7 @@ name: "\U0001F41B Bug Report"
 about: Create a report that should be improved
 title: ''
 labels: Bug report
-assignees: ShahriarShafin, SabbirHosen
+assignees: SabbirHosen, ShahriarShafin
 
 ---
 
