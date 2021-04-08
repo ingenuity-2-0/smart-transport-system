@@ -1,8 +1,11 @@
+import os
+
 import requests
 from urllib.parse import urlencode
 from pprint import pprint
 
-api_key = "Your API KEY"
+# api_key = os.environ.get("API_KEY")  # Get API Key From Your Device "System Environment Variable"
+api_key = 'YOUR API KEY'
 
 
 def geocoding_from_address(address):

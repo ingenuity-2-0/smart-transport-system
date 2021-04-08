@@ -1,5 +1,9 @@
+import os
+
 import googlemaps
-api_key = "Your API KEY"
+
+# api_key = os.environ.get("API_KEY")  # Get API Key From Your Device "System Environment Variable"
+api_key = 'YOUR API KEY'
 
 
 def find_distance(route):
@@ -7,13 +11,20 @@ def find_distance(route):
     gmaps = googlemaps.Client(api_key)
     for i in range(len(route)):
         route[i] = route[i] + ' Bus Stop, Dhaka'
-    for i in range(len(route)-1):
+    for i in range(len(route) - 1):
         ori = route[i]
-        des = route[i+1]
+        des = route[i + 1]
         distance_raw = gmaps.distance_matrix(ori, des, region='BD')
         distance_in_string = distance_raw['rows'][0]['elements'][0]['distance']['text']
-        distance = float(distance_in_string[:-3])
-        total_distance = total_distance + distance
+        if distance_in_string[-1] == 'm' and distance_in_string[-2] == ' ':
+            distance = distance_in_string[:-2]
+            des = float(distance)
+            des /= 1000
+
+        else:
+            distance = distance_in_string[:-3]
+            des = float(distance)
+        total_distance = total_distance + des
         # print('From: ' + distance_raw['origin_addresses'][0])
         # print('To: ' + distance_raw['destination_addresses'][0])
         # print(distance_in_string)
