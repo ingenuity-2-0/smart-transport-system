@@ -16,6 +16,17 @@
 - Rich database
 - Show Source to Destination Map.
 
+## Build Setup
+```bash
+# install dependencies
+pip install -r requirements.txt
+
+# run the server
+python manage.py runserver
+
+# site deployment
+http://127.0.0.1:port/
+```
 ## Author and Contributors
 - [@SabbirHosen](https://github.com/SabbirHosen)
 - [@ShahriarShafin](https://github.com/ShahriarShafin)
