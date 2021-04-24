@@ -4,7 +4,7 @@ from backendCode.geocoding import reverse_geocoding, geocoding_from_address
 from backendCode.nearbyplaces import search_nearby_places
 from home_page.models import BusInformation
 from backendCode.findBusByDirection import find_distance
-
+from decouple import config
 
 # Create your views here.
 
@@ -12,10 +12,12 @@ from backendCode.findBusByDirection import find_distance
 def searchnearby_address(request):
     location = request.POST['userlocationaddress']
     # print(location)
-
+    text = config('KEY2')
+    url = f"https://maps.googleapis.com/maps/api/js?key={text}&callback=initMap&libraries=&v=weekly"
     data = geocoding_from_address(location)
     nearby_list = search_nearby_places(data['lat'], data['lng'])
     data.update({'nearlist': nearby_list})
+    data.update({'text': url})
     return render(request, 'smartTracking/searchnearby.html', data)
 
 
@@ -24,9 +26,13 @@ def searchnearby_latlng(request):
     lat, lng = location.split(sep=',', maxsplit=1)
     formatted_address = reverse_geocoding(location)
     nearby_list = search_nearby_places(lat=lat, lng=lng)
+    text = config('KEY2')
+    url = f"https://maps.googleapis.com/maps/api/js?key={text}&callback=initMap&libraries=&v=weekly"
     data = {
         'formatted_address': formatted_address,
-        'nearlist': nearby_list
+        'nearlist': nearby_list,
+        'text': url
+
     }
     # print(location)
     return render(request, 'smartTracking/searchnearby.html', data)

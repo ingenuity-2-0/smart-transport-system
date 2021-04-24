@@ -92,7 +92,7 @@
                   <select id="start">
                     <option value="{{ formatted_address }}">{{ formatted_address }}</option>
                   </select>
-
+                    <br>
                   <b>End: </b>
                   <select id="end">
                       {% for x in nearlist %}
@@ -169,7 +169,7 @@
   <!-- MAP  -->
   <!-- add your google map API KEY  -->
   <script
-  src="https://maps.googleapis.com/maps/api/js?key=YOUR API KEY&callback=initMap&libraries=&v=weekly"
+  src= {{ text }}
   async
 ></script>
 

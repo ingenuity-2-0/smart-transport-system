@@ -3,9 +3,10 @@ import os
 import requests
 from urllib.parse import urlencode
 from pprint import pprint
+from decouple import config
 
 # api_key = os.environ.get("API_KEY")  # Get API Key From Your Device "System Environment Variable"
-api_key = 'YOUR API KEY'
+api_key = config('KEY2')
 
 
 def geocoding_from_address(address):

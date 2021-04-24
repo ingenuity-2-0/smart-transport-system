@@ -1,9 +1,10 @@
 import os
 
 import googlemaps
+from decouple import config
 
 # api_key = os.environ.get("API_KEY")  # Get API Key From Your Device "System Environment Variable"
-api_key = 'YOUR API KEY'
+api_key = config('KEY2')
 
 
 def find_distance(route):

@@ -3,7 +3,7 @@ function initMap() {
     const directionsRenderer = new google.maps.DirectionsRenderer();
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 7,
-      center: { lat: 41.85, lng: -87.65 },
+      center: { lat: 23.8103, lng: 90.4125 },
     });
     directionsRenderer.setMap(map);
 

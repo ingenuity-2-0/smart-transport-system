@@ -3,9 +3,12 @@ import os
 import requests
 from urllib.parse import urlencode
 import json
-
+from decouple import config
 # api_key = os.environ.get("API_KEY")  # Get API Key From Your Device "System Environment Variable"
-api_key = 'YOUR API KEY'
+
+
+api_key = config('KEY2')
+
 
 def search_nearby_places(lat, lng):
     places_endpoint = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
