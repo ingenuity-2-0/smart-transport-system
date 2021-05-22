@@ -58,12 +58,14 @@ def finddirection(request):
             # print('Start_index' + str(start_index))
             # print('End_index' + str(end_index))
             bus_route = []
-            if start_index <= end_index:
+            if start_index < end_index:
                 for i in range(start_index, end_index+1):
                     bus_route.append(bus_raw_route[i])
-            else:
+            elif start_index > end_index:
                 for i in range(end_index, start_index+1):
                     bus_route.append(bus_raw_route[i])
+            else:
+                bus_route.append(bus_raw_route[start_index])
             distance = find_distance(bus_route)
             # print(bus_route)
             list_route = []

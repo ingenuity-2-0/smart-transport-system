@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 import re
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 
 
 # Create your views here.
@@ -89,3 +89,9 @@ def register(request):  # getting new user info
 def logout(request):
     auth.logout(request)
     return redirect('/')  # to home
+
+
+def feedback(request):
+    forms = request.POST
+    print(forms)
+    return HttpResponse("Message sent successfully!!")
