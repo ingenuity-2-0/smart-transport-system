@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class feedback(models.Model):
+class Feedback(models.Model):
     name = models.CharField(max_length=25)
     email = models.EmailField()
     subject = models.CharField(max_length=50)

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from .models import Feedback
 import re
 from django.http import HttpResponseRedirect, HttpResponse
 
@@ -93,5 +94,11 @@ def logout(request):
 
 def feedback(request):
     forms = request.POST
+    name = request.POST['name']
+    email = request.POST['email']
+    subject = request.POST['subject']
+    message = request.POST['message']
+    msg = Feedback(name=name, email=email, subject=subject, message=message)
+    msg.save()
     print(forms)
     return HttpResponse("Message sent successfully!!")
