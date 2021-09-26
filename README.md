@@ -4,8 +4,10 @@
 ![repo size](https://img.shields.io/github/repo-size/Ingenuity-2-0/SmartTransportSystem?color=red)
 
 ## About this project
-  A user friendly web based bus transport system created using Python( Django ).<br>
+  A user friendly web based bus transport system created using Python( Django )<br>
   Search & Find all the local buses of [Dhaka City](https://en.wikipedia.org/wiki/Dhaka) conveniently.
+  
+[![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/shahriarshafin/smart-transport-system/main/static/accounts/assets/img/youtube.jpg)](https://youtu.be/250wrQvzD6Y)
 
 ## Features:
 - Local Bus route
@@ -31,9 +33,6 @@ http://127.0.0.1:port/
 - [@SabbirHosen](https://github.com/SabbirHosen)
 - [@ShahriarShafin](https://github.com/ShahriarShafin)
 - [@SohagHossen](https://github.com/SohagHossen)
-
-## Note:
-We are getting ready to compleate and launch it soon !
 
 ## License
 ```
